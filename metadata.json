@@ -1,0 +1,7 @@
+{
+  "name": "NECINA NEW V1",
+  "description": "NECINA - New England Chinese Information and Networking Association official website. Empowering professionals, entrepreneurs, and students since 1996.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
