@@ -199,13 +199,24 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({ locale }) => {
                   <div>
                     {/* Visual Hero Image Container */}
                     <div className="relative h-56 overflow-hidden bg-slate-950">
-                      <img
-                        src={prog.heroImage}
-                        alt={isZh ? prog.name_zh : prog.name}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
+                      {prog.heroImage ? (
+                        <img
+                          src={prog.heroImage}
+                          alt={isZh ? prog.name_zh : prog.name}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                          <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-2 shadow-inner">
+                            <Layers className="w-7 h-7" />
+                          </div>
+                          <span className="text-xs font-bold text-slate-300">
+                            {isZh ? '美东跨州与名校分会网络' : 'Regional & Campus Matrix'}
+                          </span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent pointer-events-none" />
 
                       {/* Top Badges: Index, Short Name, Status */}
                       <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">

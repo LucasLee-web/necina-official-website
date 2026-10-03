@@ -171,36 +171,90 @@ export const ProgramDetailPage: React.FC<ProgramDetailPageProps> = ({ locale }) 
               </div>
             </div>
 
-            {/* Right Hero Image Card */}
+            {/* Right Hero Card: Photo if available, or Network Overview Card if no photo */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
-                <img
-                  src={program.heroImage}
-                  alt={isZh ? program.name_zh : program.name}
-                  className="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+              {program.heroImage ? (
+                <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-slate-900 group">
+                  <img
+                    src={program.heroImage}
+                    alt={isZh ? program.name_zh : program.name}
+                    className="w-full h-80 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
 
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/10 space-y-1.5 text-xs">
-                  <div className="flex items-center justify-between text-slate-400">
-                    <span>{isZh ? '面向群体：' : 'Target Audience:'}</span>
-                    <span className="font-bold text-white">{isZh ? program.audience_zh : program.audience}</span>
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/10 space-y-1.5 text-xs">
+                    <div className="flex items-center justify-between text-slate-400">
+                      <span>{isZh ? '面向群体：' : 'Target Audience:'}</span>
+                      <span className="font-bold text-white">{isZh ? program.audience_zh : program.audience}</span>
+                    </div>
+                    {program.location && (
+                      <div className="flex items-center justify-between text-slate-400 pt-1 border-t border-white/5">
+                        <span>{isZh ? '活动地点：' : 'Location:'}</span>
+                        <span className="font-bold text-primary">{isZh ? program.location_zh : program.location}</span>
+                      </div>
+                    )}
+                    {program.established && (
+                      <div className="flex items-center justify-between text-slate-400 pt-1 border-t border-white/5">
+                        <span>{isZh ? '创办时间：' : 'Established:'}</span>
+                        <span className="font-bold text-slate-200">{program.established}</span>
+                      </div>
+                    )}
                   </div>
-                  {program.location && (
-                    <div className="flex items-center justify-between text-slate-400 pt-1 border-t border-white/5">
-                      <span>{isZh ? '活动地点：' : 'Location:'}</span>
-                      <span className="font-bold text-primary">{isZh ? program.location_zh : program.location}</span>
-                    </div>
-                  )}
-                  {program.established && (
-                    <div className="flex items-center justify-between text-slate-400 pt-1 border-t border-white/5">
-                      <span>{isZh ? '创办时间：' : 'Established:'}</span>
-                      <span className="font-bold text-slate-200">{program.established}</span>
-                    </div>
-                  )}
                 </div>
-              </div>
+              ) : (
+                <div className="rounded-3xl p-7 sm:p-8 bg-gradient-to-br from-slate-900 via-slate-900/90 to-slate-950 border border-white/10 shadow-2xl space-y-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                    <div className="space-y-1">
+                      <span className="text-xs font-bold text-primary uppercase tracking-widest">
+                        {isZh ? '分会生态网络' : 'Chapter Network'}
+                      </span>
+                      <h3 className="text-xl font-black text-white">
+                        {isZh ? '覆盖版图与核心枢纽' : 'Regional & Campus Matrix'}
+                      </h3>
+                    </div>
+                    <span className="p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary">
+                      <Globe className="w-6 h-6" />
+                    </span>
+                  </div>
+
+                  <div className="space-y-3.5 text-xs sm:text-sm">
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5 space-y-1">
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                        {isZh ? '美东跨州区域分会' : 'Regional Chapters'}
+                      </span>
+                      <span className="font-bold text-white block">
+                        New Hampshire • Rhode Island • New York • New Jersey
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5 space-y-1">
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                        {isZh ? '名校高校校园分会' : 'College & University Chapters'}
+                      </span>
+                      <span className="font-bold text-primary block">
+                        MIT • Boston University • Brandeis • Northeastern • Stonehill
+                      </span>
+                    </div>
+
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5 space-y-1">
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                        {isZh ? '大波士顿都市核心分会' : 'Boston Metro Chapters'}
+                      </span>
+                      <span className="font-bold text-white block">
+                        Cambridge • Woburn • Dedham • Marlborough
+                      </span>
+                    </div>
+
+                    <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                      <span>{isZh ? '网络状态：' : 'Status:'}</span>
+                      <span className="font-bold text-emerald-400">
+                        {isZh ? program.statusBadge_zh : program.statusBadge}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

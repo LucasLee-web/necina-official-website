@@ -88,47 +88,47 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <Link to="/programs/youth-impact-program" className="hover:text-white transition-colors">
-                  1. Youth Impact Program
+                  Youth Impact Program
                 </Link>
               </li>
               <li>
                 <Link to="/programs/yes-youth-entrepreneurship" className="hover:text-white transition-colors">
-                  2. YES - Youth Entrepreneurship
+                  YES - Youth Entrepreneurship
                 </Link>
               </li>
               <li>
                 <Link to="/programs/innovation-ntc-conference" className="hover:text-white transition-colors">
-                  3. Innovation NTC Conference
+                  Innovation NTC Conference
                 </Link>
               </li>
               <li>
                 <Link to="/programs/innovation-abc-platform" className="hover:text-white transition-colors">
-                  4. Innovation ABC Platform
+                  Innovation ABC Platform
                 </Link>
               </li>
               <li>
                 <Link to="/programs/innovation-sig-groups" className="hover:text-white transition-colors">
-                  5. Innovation SIG Groups
+                  Innovation SIG Groups
                 </Link>
               </li>
               <li>
                 <Link to="/programs/entrepreneur-nic-challenge" className="hover:text-white transition-colors">
-                  6. Entrepreneur NIC Challenge
+                  Entrepreneur NIC Challenge
                 </Link>
               </li>
               <li>
                 <Link to="/programs/entrepreneur-cld-leadership" className="hover:text-white transition-colors">
-                  7. Entrepreneur CLD Leadership
+                  Entrepreneur CLD Leadership
                 </Link>
               </li>
               <li>
                 <Link to="/programs/necina-clubs" className="hover:text-white transition-colors">
-                  8. NECINA Clubs
+                  NECINA Clubs
                 </Link>
               </li>
               <li>
                 <Link to="/programs/necina-chapters" className="hover:text-white transition-colors">
-                  9. NECINA Chapters
+                  NECINA Chapters
                 </Link>
               </li>
             </ul>

@@ -582,13 +582,13 @@ export const PRESIDENTS_CHRONOLOGY = [
   { year: '2022', name: 'Scott Li', name_zh: '李思佳' },
   { year: '2023-2024', name: 'John Zhuang', name_zh: '庄辉壮' },
   { year: '2025-2026', name: 'Bing He', name_zh: '何 冰' },
-  { year: '2026-2027', name: 'Caroline Lu', name_zh: 'Caroline Lu' }
+  { year: '2026-2027', name: 'Caroline Lu', name_zh: '卢妤婧' }
 ];
 
 export const LEADERSHIP_ROSTER: Leader[] = [
   {
     name: 'Caroline Lu',
-    name_zh: 'Caroline Lu',
+    name_zh: '卢妤婧',
     role: 'NECINA President (2026 - 2027)',
     role_zh: '现任会长 (2026 - 2027)',
     bio: 'Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.',

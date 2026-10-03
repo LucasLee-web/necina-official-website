@@ -46,7 +46,7 @@ export interface OfficialProgram {
   intro_zh: string;
   overview: string[];
   overview_zh: string[];
-  heroImage: string;
+  heroImage?: string;
   statusBadge: string;
   statusBadge_zh: string;
   established?: string;
@@ -941,7 +941,6 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
       '在新罕布什尔州、罗德岛州、纽约州及新泽西州设立的区域分会，极大促进了跨州高科技专业人士的互动交流；位于 MIT、波士顿大学、布兰迪斯大学、东北大学与斯通希尔学院的高校分会，持续滋养下一代科技新星。',
       '沃本（Woburn）、剑桥（Cambridge）、戴德姆（Dedham）与马尔堡（Marlborough）等大波士顿都市分会，则为周边科技园区从业人员提供了家门口的高端技术沙龙与同行网络。'
     ],
-    heroImage: '/map.png',
     statusBadge: 'Regional & University Chapters Active',
     statusBadge_zh: '区域与大学分会持续联动发展',
     established: '2012',
@@ -993,15 +992,7 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
       status: 'Open to Launch New Chapters or Join Existing Local Branches',
       status_zh: '欢迎申请发起新分会或加入已有本地分会',
       contactEmail: 'info@necina.org'
-    },
-    galleryImages: [
-      {
-        src: '/map.png',
-        alt: 'NECINA Regional and Greater Boston Footprint Map',
-        caption: 'NECINA Regional Chapter Footprint across New England and Northeast Corridor',
-        caption_zh: 'NECINA 跨越新英格兰与美东走廊的分会版图分布'
-      }
-    ]
+    }
   }
 ];
 
