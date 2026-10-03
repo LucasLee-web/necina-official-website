@@ -324,20 +324,27 @@ export const OfficialHome: React.FC<OfficialHomeProps> = ({ locale }) => {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
-                  <a
-                    href={ev.registrationUrl || 'https://app.joinit.com/o/necina-boston'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-xl font-bold text-xs bg-primary text-white hover:bg-primary-hover transition-colors"
-                  >
-                    {c.upcomingEventsSection.registerNow}
-                  </a>
-                  <Link
-                    to="/events"
-                    className="text-xs font-semibold text-slate-400 hover:text-white transition-colors"
-                  >
-                    {isZh ? '查看详情' : 'Event Details'} →
-                  </Link>
+                  <span className="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                    <span>{isZh ? '活动已圆满举行' : 'Concluded Successfully'}</span>
+                  </span>
+                  {ev.id === '30th-gala' ? (
+                    <Link
+                      to="/anniversary"
+                      className="text-xs font-semibold text-primary hover:underline transition-colors flex items-center gap-1"
+                    >
+                      <span>{isZh ? '查看 30 周年专题' : 'View 30th Anniversary'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/events"
+                      className="text-xs font-semibold text-primary hover:underline transition-colors flex items-center gap-1"
+                    >
+                      <span>{isZh ? '查看回顾与详情' : 'View Recap & Details'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

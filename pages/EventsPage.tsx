@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, ExternalLink, Check, Bell, Tag, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Bell, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Locale } from '../types';
-import { EVENTS_LIST, OfficialEvent } from '../officialContent';
+import { EVENTS_LIST } from '../officialContent';
 
 interface EventsPageProps {
   locale: Locale;
@@ -11,11 +12,7 @@ interface EventsPageProps {
 export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
   const isZh = locale === 'zh';
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
-  const [registrationModalEvent, setRegistrationModalEvent] = useState<OfficialEvent | null>(null);
-  const [rsvpName, setRsvpName] = useState('');
-  const [rsvpEmail, setRsvpEmail] = useState('');
-  const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+  const [activeTab, setActiveTab] = useState<'past' | 'upcoming'>('past');
 
   const categories = [
     { id: 'all', label: isZh ? '全部类别' : 'All Categories' },
@@ -31,63 +28,43 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
     return matchesTab && matchesCat;
   });
 
-  const handleRsvpSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!rsvpEmail) return;
-    setRsvpSubmitted(true);
-    setTimeout(() => {
-      setRsvpSubmitted(false);
-      setRegistrationModalEvent(null);
-      setRsvpName('');
-      setRsvpEmail('');
-    }, 2500);
-  };
-
   const t = {
-    badge: isZh ? 'NECINA 活动日历与前沿资讯' : 'Events, Conferences & News',
+    badge: isZh ? 'NECINA 活动日历与历史回顾' : 'Events, Conferences & Archives',
     title: isZh ? '汇聚全球华人智识，共赴科技浪潮' : 'Connect, Learn & Engage at Premier Tech Gatherings',
     subtitle: isZh
       ? '三十年来，NECINA 持续举办数百场高规格学术研讨会、前沿技术论坛、青年大赛与高端社交酒会，让每一位参与者拓展视野与人脉。'
       : 'For three decades, NECINA has hosted hundreds of high-caliber conferences, tech symposiums, youth competitions, and exclusive networking mixers across New England.',
-    upcomingTab: isZh ? '即将举办的活动' : 'Upcoming Events',
-    pastTab: isZh ? '往期活动回顾' : 'Past Events Archive',
+    upcomingTab: isZh ? '最新待办活动' : 'Upcoming Events',
+    pastTab: isZh ? '往期活动精彩回顾' : 'Past Events Archive',
     speakersLabel: isZh ? '特邀演讲嘉宾' : 'Featured Speakers',
     venueLabel: isZh ? '地点' : 'Venue',
-    registerBtn: isZh ? '即刻报名参会' : 'Register / RSVP',
-    learnMore: isZh ? '了解详情' : 'Learn More',
+    concluded: isZh ? '活动已圆满举行' : 'Concluded Successfully',
     announcementsTitle: isZh ? '官方重要公告与通知' : 'Official News & Announcements',
-    modalTitle: isZh ? '活动报名登记' : 'Event RSVP Registration',
-    modalDesc: isZh
-      ? '请填写您的姓名与邮箱，我们将向您发送参会指南与电子票务确认函。'
-      : 'Please provide your name and email to receive event logistical details and confirmation.',
-    namePlaceholder: isZh ? '您的姓名' : 'Full Name',
-    emailPlaceholder: isZh ? '电子邮箱 (如 user@example.com)' : 'Email address',
-    submitRsvp: isZh ? '确认报名登记' : 'Confirm Registration',
-    successMsg: isZh ? '恭喜！登记成功，确认函已发送至您的邮箱。' : 'Success! Your registration details have been recorded.',
-    close: isZh ? '关闭' : 'Close'
+    noUpcoming: isZh ? '暂无正在开放报名的活动' : 'No upcoming event registrations currently open',
+    noUpcomingSub: isZh ? '过往精彩峰会与活动均已圆满落幕并归档，新一季活动安排将在此发布，敬请关注！' : 'All prior events have concluded and are archived. Upcoming season events will be announced here soon!'
   };
 
   const announcements = [
     {
+      date: isZh ? '2026年6月' : 'June 2026',
+      title: isZh ? 'NECINA 三十周年盛大庆典与科技峰会圆满落幕' : 'NECINA 30th Anniversary Grand Ceremony & Gala Concludes',
+      desc: isZh
+        ? '数百位中美科技领袖、校友与学子齐聚 Bentley 大学会议中心，共同见证三十载荣耀传承。'
+        : 'Over 500 tech leaders, alumni, and community members gathered at Bentley University to celebrate 30 years of impact.'
+    },
+    {
+      date: isZh ? '2026年5月' : 'May 2026',
+      title: isZh ? 'YES 青年创业大赛二十周年全场总决赛胜利举办' : 'YES 20th Anniversary Final Pitch Showcase Completed',
+      desc: isZh
+        ? '高中入围战队在 MIT Stata 创新中心展示经过市场验证的商业计划书，展现下一代卓越商业潜能。'
+        : 'High school finalist teams presented validated prototypes and business models before distinguished venture judges at MIT.'
+    },
+    {
       date: isZh ? '2026年3月' : 'March 2026',
-      title: isZh ? 'NECINA 三十周年盛典全面开启报名与赞助通道' : 'NECINA 30th Anniversary Gala Registration & Sponsorship Now Open',
+      title: isZh ? '新一届志愿者团队招募持续进行中' : 'Annual Volunteer Recruitment Ongoing',
       desc: isZh
-        ? '三十周年盛典将于 2026 年 6 月 13 日在 Bentley 大学会议中心隆重举行，涵盖全天高端科技论坛与盛大晚宴。'
-        : 'The landmark celebration takes place on June 13, 2026, featuring keynote presentations from Flagship Pioneering, Harvard Medical School, and OpenAI.'
-    },
-    {
-      date: isZh ? '2026年2月' : 'February 2026',
-      title: isZh ? 'YES 青年创业服务项目 2026 年度春季训练营正式启航' : 'YES Youth Entrepreneurship 2026 Spring Cohort Commences',
-      desc: isZh
-        ? '庆祝 YES 成立 20 周年，数十位新英格兰高中生入选，开启为期数月的商业计划书实战孵化。'
-        : 'Marking 20 years of youth mentorship, the spring cohort kicks off with executive mentors and venture competition preparation.'
-    },
-    {
-      date: isZh ? '2026年1月' : 'January 2026',
-      title: isZh ? '新一届志愿者团队招募启动，诚邀专业人士与学子加入' : '2026 Volunteer Recruitment Campaign Launched',
-      desc: isZh
-        ? '为科技峰会、新媒体运营、青少年导师库及技术开发提供广阔的实践舞台与领导力平台。'
-        : 'Offering dynamic roles in conference logistics, tech operations, social media, and youth entrepreneurship mentoring.'
+        ? '为科技峰会策划、新媒体运营、青少年导师库及技术开发提供广阔的实践舞台与领导力平台。'
+        : 'Offering leadership roles in event logistics, marketing, youth mentoring, and full-stack technical systems.'
     }
   ];
 
@@ -115,20 +92,20 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
           <div className="mt-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-white/10 text-xs font-bold w-fit">
               <button
-                onClick={() => setActiveTab('upcoming')}
-                className={`px-4 py-2 rounded-lg transition-all ${
-                  activeTab === 'upcoming' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {t.upcomingTab}
-              </button>
-              <button
                 onClick={() => setActiveTab('past')}
                 className={`px-4 py-2 rounded-lg transition-all ${
                   activeTab === 'past' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {t.pastTab}
+              </button>
+              <button
+                onClick={() => setActiveTab('upcoming')}
+                className={`px-4 py-2 rounded-lg transition-all ${
+                  activeTab === 'upcoming' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {t.upcomingTab}
               </button>
             </div>
 
@@ -159,10 +136,10 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
             <div className="text-center py-20 bg-slate-900/40 rounded-3xl border border-white/10 space-y-4">
               <Clock className="w-10 h-10 text-slate-500 mx-auto" />
               <h3 className="text-xl font-bold text-slate-300">
-                {isZh ? '此分类下暂无已列出活动' : 'No events found in this category'}
+                {activeTab === 'upcoming' ? t.noUpcoming : (isZh ? '此分类下暂无已列出活动' : 'No events found in this category')}
               </h3>
-              <p className="text-sm text-slate-500">
-                {isZh ? '请切换其他分类或关注官方最新公告。' : 'Please check back soon or browse other categories.'}
+              <p className="text-sm text-slate-500 max-w-md mx-auto">
+                {activeTab === 'upcoming' ? t.noUpcomingSub : (isZh ? '请切换其他分类或浏览往期精彩回顾。' : 'Please check other categories or browse the past events archive.')}
               </p>
             </div>
           ) : (
@@ -188,7 +165,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                           {isZh ? ev.category_zh : ev.category}
                         </span>
                         {ev.id === '30th-gala' && (
-                          <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md text-xs font-bold text-white border border-primary/40 animate-pulse">
+                          <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md text-xs font-bold text-white border border-primary/40">
                             ★ 30th Anniversary
                           </span>
                         )}
@@ -231,31 +208,30 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                     </div>
                   </div>
 
-                  {/* Action Bar */}
+                  {/* Action Bar without any register button */}
                   <div className="p-8 pt-0">
                     <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4">
-                      {ev.status === 'upcoming' ? (
-                        <>
-                          <button
-                            onClick={() => setRegistrationModalEvent(ev)}
-                            className="px-6 py-3 rounded-xl font-bold text-xs bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/25 transition-transform active:scale-95"
-                          >
-                            {t.registerBtn}
-                          </button>
-                          <a
-                            href={ev.registrationUrl || 'https://app.joinit.com/o/necina-boston'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-slate-400 hover:text-white flex items-center gap-1 font-semibold"
-                          >
-                            <span>Joinit Portal</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </a>
-                        </>
+                      <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        <span>{t.concluded}</span>
+                      </span>
+
+                      {ev.id === '30th-gala' ? (
+                        <Link
+                          to="/anniversary"
+                          className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+                        >
+                          <span>{isZh ? '查看 30 周年盛典回顾' : 'View 30th Anniversary Recap'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       ) : (
-                        <span className="text-xs font-semibold text-slate-500">
-                          {isZh ? '活动已圆满举行' : 'Concluded Successfully'}
-                        </span>
+                        <Link
+                          to="/media"
+                          className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+                        >
+                          <span>{isZh ? '查看多媒体与照片' : 'View Media & Photos'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -299,78 +275,6 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
           </div>
         </div>
       </section>
-
-      {/* 4. INTERACTIVE REGISTRATION MODAL */}
-      {registrationModalEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in">
-          <div className="bg-slate-900 border border-white/15 rounded-3xl max-w-lg w-full p-8 shadow-2xl space-y-6 relative">
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                {isZh ? '活动注册' : 'Event RSVP'}
-              </span>
-              <h3 className="text-2xl font-black text-white">
-                {isZh ? registrationModalEvent.title_zh : registrationModalEvent.title}
-              </h3>
-              <p className="text-xs text-slate-400">
-                {t.modalDesc}
-              </p>
-            </div>
-
-            {rsvpSubmitted ? (
-              <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold flex items-center gap-3">
-                <Check className="w-5 h-5 flex-shrink-0" />
-                <span>{t.successMsg}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleRsvpSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    {t.namePlaceholder}
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={rsvpName}
-                    onChange={(e) => setRsvpName(e.target.value)}
-                    placeholder="Jane Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-primary"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    {t.emailPlaceholder}
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={rsvpEmail}
-                    onChange={(e) => setRsvpEmail(e.target.value)}
-                    placeholder="jane@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-primary"
-                  />
-                </div>
-
-                <div className="pt-2 flex items-center justify-end gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setRegistrationModalEvent(null)}
-                    className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-colors"
-                  >
-                    {t.close}
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-6 py-2.5 rounded-xl text-xs font-bold bg-primary text-white hover:bg-primary-hover transition-colors shadow-lg shadow-primary/25"
-                  >
-                    {t.submitRsvp}
-                  </button>
-                </div>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

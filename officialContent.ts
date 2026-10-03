@@ -125,11 +125,10 @@ export const OFFICIAL_CONTENT = {
       viewAll: 'View All Programs'
     },
     upcomingEventsSection: {
-      kicker: 'Calendar & Gatherings',
-      title: 'Join Us at Our Upcoming Events',
-      description: 'Engage with industry trailblazers, expand your network, and participate in transformative discussions.',
-      viewAllEvents: 'View All Events',
-      registerNow: 'Register Now'
+      kicker: 'Conferences & Gatherings',
+      title: 'Flagship Conferences & Gatherings',
+      description: 'Explore our landmark conferences, technology symposiums, and impactful community gatherings.',
+      viewAllEvents: 'View All Events'
     },
     sponsorsSection: {
       kicker: 'Trusted Partners',
@@ -189,11 +188,10 @@ export const OFFICIAL_CONTENT = {
       viewAll: '查看全部项目'
     },
     upcomingEventsSection: {
-      kicker: '活动日历',
-      title: '相聚即将举办的精彩盛会',
-      description: '与行业先锋面对面交流，拓展高端专业人脉，共享思维碰撞。',
-      viewAllEvents: '浏览完整活动',
-      registerNow: '立即报名'
+      kicker: '盛会与里程碑',
+      title: '旗舰峰会与重要活动展示',
+      description: '探索 NECINA 标志性的高规格科技大会、行业研讨与精彩社区盛会。',
+      viewAllEvents: '浏览完整活动'
     },
     sponsorsSection: {
       kicker: '信任伙伴',
@@ -471,12 +469,11 @@ export const EVENTS_LIST: OfficialEvent[] = [
     venue_zh: '本特利大学会议中心（马萨诸塞州 Waltham）',
     category: 'Flagship',
     category_zh: '旗舰庆典',
-    status: 'upcoming',
+    status: 'past',
     description: 'The premier milestone event bringing together 500+ leaders, alumni, founders, and students. Featuring keynotes from Flagship Pioneering, Harvard Medical School, and OpenAI, high-level AI panels, and an evening cultural celebration.',
     description_zh: '汇聚 500 多位科技领袖、杰出校友、创始人与学子的年度里程碑盛事。包含 Flagship Pioneering、哈佛医学院与 OpenAI 专家的重磅演讲、物理与生物 AI 高端论坛及三十周年文艺晚宴。',
     speakers: ['Uli Stilz (Flagship Pioneering)', 'Prof. John Quackenbush (Harvard)', 'Charles Qi (OpenAI)', 'Cheng Wu (NECINA Chairman)'],
     speakers_zh: ['Uli Stilz 博士 (Flagship Pioneering)', 'John Quackenbush 教授 (哈佛大学)', 'Charles Qi (OpenAI)', '吴锦城 (NECINA 荣誉董事长)'],
-    registrationUrl: 'https://app.joinit.com/o/necina-boston',
     image: '/30th Anniversary Ceremony.jpg'
   },
   {
@@ -489,12 +486,11 @@ export const EVENTS_LIST: OfficialEvent[] = [
     venue_zh: '牛顿市政厅大礼堂（马萨诸塞州 Newton）',
     category: 'AI & Tech',
     category_zh: '前沿科技',
-    status: 'upcoming',
+    status: 'past',
     description: 'Exploring the transition from LLMs to autonomous agentic workflows. Featuring live demos, technical architecture breakdowns, and startup showcases.',
     description_zh: '深入探讨从大语言模型走向自主智能体工作流的前沿突破，包含架构剖析、现场 Live Demo 演示与创业团队路演。',
     speakers: ['Mingsheng Hong, PhD (VP of AI, Ironclad)', 'Dr. Alan Jiang (XtalPi)', 'Industry Tech Fellows'],
     speakers_zh: ['洪銘胜 博士 (Ironclad AI 副总裁)', '姜航 博士 (晶泰科技 CSO)', '硅谷及波士顿科技资深专家'],
-    registrationUrl: 'https://app.joinit.com/o/necina-boston',
     image: 'https://img.youtube.com/vi/M5RB08XB5Fk/maxresdefault.jpg'
   },
   {
@@ -507,12 +503,11 @@ export const EVENTS_LIST: OfficialEvent[] = [
     venue_zh: '麻省理工学院 (MIT) Stata 创新中心',
     category: 'Youth',
     category_zh: '青年创业',
-    status: 'upcoming',
+    status: 'past',
     description: 'High school finalist teams pitch their tested business models and working prototypes before a distinguished panel of venture investors and tech executives.',
     description_zh: '入围决赛的高中青年创业战队登上 MIT 舞台，向知名风险投资人与科技高管评审团展示经过市场验证的商业计划书与产品原型。',
     speakers: ['Ben Tao (Rockwell Automation)', 'YES Alumni Mentors', 'Boston Angel Investors'],
     speakers_zh: ['陶东斌 (罗克韦尔自动化战略高管)', 'YES 往届杰出校友导师', '波士顿天使投资人评审'],
-    registrationUrl: 'https://app.joinit.com/o/necina-boston',
     image: '/yes_group_photo.jpg'
   },
   {
@@ -525,12 +520,11 @@ export const EVENTS_LIST: OfficialEvent[] = [
     venue_zh: '巴布森商学院高管中心（马萨诸塞州 Wellesley）',
     category: 'Entrepreneurship',
     category_zh: '商业领袖',
-    status: 'upcoming',
+    status: 'past',
     description: 'Celebrating impactful female founders, researchers, and venture capitalists. Discussions covering fundraising dynamics, executive resilience, and career advancement.',
     description_zh: '聚焦科技与创投领域的卓越女性创始人与合伙人，围绕募资实战、职场抗逆力与领袖进阶展开深度对谈。',
     speakers: ['Shirley Liu PhD (GV20)', 'Claire Jin (Past President)', 'Connie Dai (Esq.)'],
     speakers_zh: ['刘小乐 博士 (GV20 创始人兼 CEO)', '金世维 (前会长)', '戴晨方 律师 (前会长)'],
-    registrationUrl: 'https://app.joinit.com/o/necina-boston',
     image: '/necina_eclub_summit.jpg'
   },
   {
@@ -717,80 +711,73 @@ export const MEDIA_GALLERY: MediaItem[] = [
   }
 ];
 
-export const MEMBERSHIP_TIERS = [
+export interface MembershipPlan {
+  id: string;
+  name: string;
+  name_zh: string;
+  price: string;
+  price_zh?: string;
+  duration: string;
+  duration_zh: string;
+  billing: string;
+  billing_zh: string;
+  description: string;
+  description_zh: string;
+  link: string;
+}
+
+export const MEMBERSHIP_TIERS: MembershipPlan[] = [
   {
-    name: 'Student Member',
-    name_zh: '学生会员',
-    price: '$20',
-    term: '/ year',
-    term_zh: '/ 年',
-    description: 'For currently enrolled high school, undergraduate, or graduate students.',
-    description_zh: '适用于在读高中生、本科生及研究生。',
-    features: [
-      'Free or discounted admission to all regular conferences and workshops',
-      'Eligibility for the YES mentorship program and student discounts',
-      'Exclusive student networking circles and resume review sessions',
-      'Access to the NECINA job board and referral network'
-    ],
-    features_zh: [
-      '免费或优惠参加所有常规研讨会、前沿讲座及技术工坊',
-      '优先报名 YES 青年创业培训营并享受专属辅导',
-      '参加学生专属人脉酒会与名企高管简历辅导',
-      '获取 NECINA 独家企业内推与招聘网络资源'
-    ],
-    cta: 'Join as Student',
-    cta_zh: '加入学生会员',
+    id: 'pro',
+    name: 'Full Membership for Professional',
+    name_zh: '专业人士正式会员',
+    price: '$40.00',
+    duration: 'Annual',
+    duration_zh: '年度',
+    billing: 'Optional Rebilling',
+    billing_zh: '可选自动续费',
+    description: 'Full access to NECINA events and resources.',
+    description_zh: '全面畅享 NECINA 活动与资源。',
     link: 'https://app.joinit.com/o/necina-boston'
   },
   {
-    name: 'Individual Member',
-    name_zh: '标准个人会员',
-    price: '$50',
-    term: '/ year',
-    term_zh: '/ 年',
-    popular: true,
-    description: 'For working professionals, engineers, researchers, and early entrepreneurs.',
-    description_zh: '适用于科技职场人士、工程师、科研工作者及早期创业者。',
-    features: [
-      'Complimentary access to bi-weekly SIG technical sessions and talks',
-      'Discounts on flagship annual gala and premier tech conferences',
-      'Direct participation in NECINA Innovation Challenge (NIC)',
-      'High-caliber networking with C-level executives and tech veterans',
-      'Voting rights at the annual general meeting'
-    ],
-    features_zh: [
-      '免费参与双周 SIG 前沿技术沙龙与专家对谈',
-      '享受年度大会、30 周年盛典及重磅峰会的大幅门票优惠',
-      '直接参与 NECINA 创新大赛 (NIC) 孵化计划',
-      '与硅谷及波士顿顶尖科技高管、资深架构师深度社交',
-      '享有年度会员大会表决权与选举权'
-    ],
-    cta: 'Become a Member',
-    cta_zh: '加入个人会员',
+    id: 'student',
+    name: 'Full Membership for Student',
+    name_zh: '学生正式会员',
+    price: '$20.00',
+    duration: 'Annual',
+    duration_zh: '年度',
+    billing: 'Optional Rebilling',
+    billing_zh: '可选自动续费',
+    description: 'Full access to NECINA events and resources.',
+    description_zh: '全面畅享 NECINA 活动与资源。',
     link: 'https://app.joinit.com/o/necina-boston'
   },
   {
-    name: 'Lifetime Member',
-    name_zh: '终身荣誉会员',
-    price: '$500',
-    term: 'one-time',
-    term_zh: '一次性付清',
-    description: 'For committed community champions seeking permanent connection and prestige.',
-    description_zh: '适用于长期鼎力支持社区发展、追求终身荣耀连接的精英人士。',
-    features: [
-      'Lifetime free or VIP access to all standard conferences and workshops',
-      'Invitation to exclusive VIP receptions with keynote speakers and board members',
-      'Special recognition on the NECINA website and annual commemorative program',
-      'Priority consideration for committee leadership and mentorship roles'
-    ],
-    features_zh: [
-      '终身免费或 VIP 待遇参与所有常规学术研讨会与讲座',
-      '受邀出席与大会主旨演讲嘉宾及董事会董事的闭门 VIP 招待酒会',
-      '在 NECINA 官方网站与年度纪念册中享有专属荣誉致谢',
-      '优先担任各专业委员会领导职务与 YES 导师顾问'
-    ],
-    cta: 'Join for Life',
-    cta_zh: '成为终身会员',
+    id: 'lifetime',
+    name: 'Lifetime Membership',
+    name_zh: '终身会员',
+    price: '$300.00',
+    duration: 'Lifetime',
+    duration_zh: '终身',
+    billing: 'One-time Billing',
+    billing_zh: '一次性计费',
+    description: 'Full access to NECINA events and resources.',
+    description_zh: '全面畅享 NECINA 活动与资源。',
+    link: 'https://app.joinit.com/o/necina-boston'
+  },
+  {
+    id: 'associate',
+    name: 'Associate Membership',
+    name_zh: '准会员 (Associate Membership)',
+    price: 'Free',
+    price_zh: '免费',
+    duration: '3 years',
+    duration_zh: '3 年',
+    billing: 'None',
+    billing_zh: '无',
+    description: 'NECINA community participants, subject to a surcharge for event.',
+    description_zh: 'NECINA 社区参与者，参与活动须额外支付附加费。',
     link: 'https://app.joinit.com/o/necina-boston'
   }
 ];

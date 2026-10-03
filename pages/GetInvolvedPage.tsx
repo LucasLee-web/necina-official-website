@@ -75,7 +75,13 @@ export const GetInvolvedPage: React.FC<GetInvolvedPageProps> = ({ locale }) => {
     careersTitle: isZh ? '职业成长与人才对接网络' : 'Career Resources & Mentorship Pipeline',
     careersDesc: isZh
       ? '依托新英格兰顶尖华人科技高管网络，为会员提供求职指导、简历复盘与名企内推。'
-      : 'Leveraging our executive alumni network to provide resume teardowns, career roundtables, and high-impact referrals.'
+      : 'Leveraging our executive alumni network to provide resume teardowns, career roundtables, and high-impact referrals.',
+    durationLabel: isZh ? '有效期：' : 'Duration:',
+    billingLabel: isZh ? '计费方式：' : 'Billing:',
+    joinBtn: isZh ? '加入 (JOIN)' : 'JOIN',
+    memberLoginText: isZh ? '已经是正式会员？' : 'Already a registered NECINA member?',
+    memberLoginSub: isZh ? '登录会员中心管理您的会籍、查看专属票务与活动权益' : 'Access your member dashboard to manage subscription and membership benefits',
+    memberLoginBtn: isZh ? '会员登录 (MEMBER LOG IN)' : 'MEMBER LOG IN',
   };
 
   return (
@@ -152,63 +158,84 @@ export const GetInvolvedPage: React.FC<GetInvolvedPageProps> = ({ locale }) => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 items-stretch">
-              {MEMBERSHIP_TIERS.map((tier, idx) => (
-                <div
-                  key={idx}
-                  className={`p-8 rounded-3xl bg-slate-900 border flex flex-col justify-between transition-all duration-300 relative shadow-2xl ${
-                    tier.popular ? 'border-primary ring-2 ring-primary/20' : 'border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  {tier.popular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-white text-[11px] font-black uppercase tracking-widest shadow-md">
-                      {isZh ? '最受欢迎' : 'Most Popular'}
-                    </div>
-                  )}
+            {/* Member Login Callout */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 sm:p-6 rounded-3xl bg-slate-900 border border-white/10 mb-10 shadow-xl">
+              <div className="flex items-center gap-4 text-center sm:text-left">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                  <Users className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-base font-bold text-white">
+                    {t.memberLoginText}
+                  </div>
+                  <div className="text-xs text-slate-400 mt-0.5">
+                    {t.memberLoginSub}
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://app.joinit.com/o/necina-boston/members/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-2 whitespace-nowrap"
+              >
+                <span>{t.memberLoginBtn}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
 
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {MEMBERSHIP_TIERS.map((tier) => (
+                <div
+                  key={tier.id}
+                  className="p-7 rounded-3xl bg-slate-900 border border-white/10 hover:border-primary/50 flex flex-col justify-between transition-all duration-300 relative shadow-xl hover:-translate-y-1"
+                >
+                  <div className="space-y-5">
+                    {/* Plan Title */}
+                    <div className="space-y-1">
+                      <div className="text-[11px] font-bold uppercase tracking-widest text-primary">
+                        {isZh ? '会员方案' : 'Membership Plan'}
+                      </div>
+                      <h3 className="text-xl font-bold text-white leading-snug min-h-[56px] flex items-center">
                         {isZh ? tier.name_zh : tier.name}
                       </h3>
-                      <p className="text-xs text-slate-400 min-h-[32px]">
-                        {isZh ? tier.description_zh : tier.description}
-                      </p>
                     </div>
 
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl sm:text-5xl font-black text-white tabular-nums">
-                        {tier.price}
-                      </span>
-                      <span className="text-sm font-semibold text-slate-400">
-                        {isZh ? tier.term_zh : tier.term}
+                    {/* Price */}
+                    <div className="pb-1">
+                      <span className="text-4xl font-black text-white tabular-nums tracking-tight">
+                        {isZh ? tier.price_zh || tier.price : tier.price}
                       </span>
                     </div>
 
-                    <div className="pt-4 border-t border-white/10 space-y-3">
-                      {(isZh ? tier.features_zh : tier.features).map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-slate-300 leading-snug">
-                            {feat}
-                          </span>
-                        </div>
-                      ))}
+                    {/* Duration & Billing Terms */}
+                    <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="text-slate-400 font-medium">{t.durationLabel}</span>
+                        <span className="text-white font-bold">{isZh ? tier.duration_zh : tier.duration}</span>
+                      </div>
+                      <div className="h-px bg-white/5" />
+                      <div className="flex items-center justify-between">
+                        <span className="text-slate-400 font-medium">{t.billingLabel}</span>
+                        <span className="text-primary font-bold">{isZh ? tier.billing_zh : tier.billing}</span>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal min-h-[56px] flex items-start">
+                      {isZh ? tier.description_zh : tier.description}
                     </div>
                   </div>
 
-                  <div className="pt-8">
+                  {/* Join Action Button */}
+                  <div className="pt-6">
                     <a
                       href={tier.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block w-full text-center py-4 rounded-xl font-bold text-sm transition-all transform active:scale-95 ${
-                        tier.popular
-                          ? 'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/30'
-                          : 'bg-white/10 text-white hover:bg-white/15 border border-white/15'
-                      }`}
+                      className="block w-full text-center py-3.5 rounded-xl font-black text-xs sm:text-sm tracking-wider uppercase bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/25 transition-transform active:scale-95"
                     >
-                      {isZh ? tier.cta_zh : tier.cta}
+                      {t.joinBtn}
                     </a>
                   </div>
                 </div>
