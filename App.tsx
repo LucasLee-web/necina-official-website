@@ -6,6 +6,7 @@ import OfficialFooter from './components/OfficialFooter';
 import OfficialHome from './pages/OfficialHome';
 import AboutPage from './pages/AboutPage';
 import ProgramsPage from './pages/ProgramsPage';
+import ProgramDetailPage from './pages/ProgramDetailPage';
 import EventsPage from './pages/EventsPage';
 import MediaPage from './pages/MediaPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
@@ -78,6 +79,7 @@ const App: React.FC = () => {
           <Route path="/" element={<OfficialHome locale={locale} />} />
           <Route path="/about" element={<AboutPage locale={locale} />} />
           <Route path="/programs" element={<ProgramsPage locale={locale} />} />
+          <Route path="/programs/:slug" element={<ProgramDetailPage locale={locale} />} />
           <Route path="/events" element={<EventsPage locale={locale} />} />
           <Route path="/media" element={<MediaPage locale={locale} />} />
           <Route path="/get-involved" element={<GetInvolvedPage locale={locale} />} />

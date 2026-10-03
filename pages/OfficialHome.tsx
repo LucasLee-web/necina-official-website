@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Users, Award, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
 import type { Locale } from '../types';
-import { OFFICIAL_CONTENT, PROGRAMS_LIST, EVENTS_LIST } from '../officialContent';
+import { OFFICIAL_CONTENT, EVENTS_LIST } from '../officialContent';
+import { OFFICIAL_PROGRAMS } from '../programsData';
 
 interface OfficialHomeProps {
   locale: Locale;
@@ -221,21 +222,23 @@ export const OfficialHome: React.FC<OfficialHomeProps> = ({ locale }) => {
 
           {/* Bento-style Grid of Programs */}
           <div className="grid lg:grid-cols-3 gap-8">
-            {PROGRAMS_LIST.slice(0, 3).map((prog) => (
+            {OFFICIAL_PROGRAMS.slice(0, 3).map((prog) => (
               <div
-                key={prog.id}
+                key={prog.slug}
                 className="rounded-3xl bg-slate-900 border border-white/10 overflow-hidden flex flex-col group hover:border-primary/50 transition-all duration-300 shadow-xl"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img
-                    src={prog.image}
+                    src={prog.heroImage}
                     alt={isZh ? prog.name_zh : prog.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[11px] font-bold text-primary border border-white/10">
-                    {isZh ? `创立于 ${prog.founded}` : `Est. ${prog.founded}`}
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[11px] font-bold text-primary border border-white/10 flex items-center gap-1.5">
+                    <span className="font-extrabold text-white">{prog.shortName}</span>
+                    <span className="text-slate-500">•</span>
+                    <span>{isZh ? prog.categoryLabel_zh : prog.categoryLabel}</span>
                   </div>
                 </div>
 
@@ -245,7 +248,7 @@ export const OfficialHome: React.FC<OfficialHomeProps> = ({ locale }) => {
                       {isZh ? prog.name_zh : prog.name}
                     </h3>
                     <p className="text-sm text-slate-400 line-clamp-3 leading-relaxed">
-                      {isZh ? prog.description_zh : prog.description}
+                      {isZh ? prog.intro_zh : prog.intro}
                     </p>
                   </div>
 
@@ -254,10 +257,10 @@ export const OfficialHome: React.FC<OfficialHomeProps> = ({ locale }) => {
                       {isZh ? prog.audience_zh : prog.audience}
                     </span>
                     <Link
-                      to={`/programs#${prog.id}`}
-                      className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+                      to={`/programs/${prog.slug}`}
+                      className="px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20 text-xs font-bold transition-all flex items-center gap-1.5"
                     >
-                      <span>{isZh ? '了解详情' : 'Learn More'}</span>
+                      <span>{isZh ? `探索 ${prog.shortName}` : `Explore ${prog.shortName}`}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
@@ -406,6 +409,7 @@ export const OfficialHome: React.FC<OfficialHomeProps> = ({ locale }) => {
             <div className="relative w-full max-w-5xl px-2">
               <SponsorsImage
                 fallbackUrls={[
+                  '/Sponsor.png',
                   '/featured_sponsors.jpg',
                   '/sponsors_poster.png',
                   '/sponsors_banner.png'

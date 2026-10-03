@@ -56,9 +56,9 @@ export const OfficialNavbar: React.FC<OfficialNavbarProps> = ({ locale, setLocal
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
+                className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
                   isActive(link.path)
-                    ? 'text-primary bg-white/5'
+                    ? 'text-primary bg-white/5 font-bold'
                     : 'text-slate-300 hover:text-white hover:bg-white/5'
                 }`}
               >
@@ -104,27 +104,26 @@ export const OfficialNavbar: React.FC<OfficialNavbarProps> = ({ locale, setLocal
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                中文
+                中
               </button>
             </div>
 
             {/* Primary Action Button */}
             <Link
               to="/get-involved"
-              className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/25 transition-all transform active:scale-95 whitespace-nowrap"
+              className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 bg-primary hover:bg-primary-hover text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
             >
               {t.joinUs}
             </Link>
           </div>
 
-          {/* Mobile Right Controls */}
-          <div className="lg:hidden flex items-center space-x-2">
-            {/* Mobile Language Switcher */}
-            <div className="flex items-center p-0.5 rounded-full bg-white/5 border border-white/10">
+          {/* Mobile menu trigger */}
+          <div className="flex items-center space-x-2 lg:hidden">
+            <div className="flex items-center p-1 rounded-full bg-white/5 border border-white/10 mr-1">
               <button
                 type="button"
                 onClick={() => setLocale('en')}
-                className={`px-2 py-1 rounded-full text-[10px] font-bold ${
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
                   locale === 'en' ? 'bg-primary text-white' : 'text-slate-400'
                 }`}
               >
@@ -133,7 +132,7 @@ export const OfficialNavbar: React.FC<OfficialNavbarProps> = ({ locale, setLocal
               <button
                 type="button"
                 onClick={() => setLocale('zh')}
-                className={`px-2 py-1 rounded-full text-[10px] font-bold ${
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
                   locale === 'zh' ? 'bg-primary text-white' : 'text-slate-400'
                 }`}
               >

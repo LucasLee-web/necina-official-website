@@ -86,6 +86,7 @@ export const AnniversaryPage: React.FC<AnniversaryPageProps> = ({ locale }) => {
           <div className="flex justify-center items-center">
             <div className="relative w-full max-w-6xl px-1 sm:px-2">
               <SponsorsImage fallbackUrls={[
+                '/Sponsor.png',
                 '/featured_sponsors.jpg',
                 '/sponsors_poster.png',
                 '/sponsors_banner.png',

@@ -23,6 +23,7 @@ export interface Leader {
 
 export interface ProgramDetail {
   id: string;
+  shortName: string;
   name: string;
   name_zh: string;
   subtitle: string;
@@ -261,6 +262,7 @@ export const MILESTONES: Milestone[] = [
 export const PROGRAMS_LIST: ProgramDetail[] = [
   {
     id: 'yes',
+    shortName: 'YES',
     name: 'Youth Entrepreneurship Service (YES)',
     name_zh: '青年创业服务项目 (YES)',
     subtitle: 'Empowering High School & College Innovators Since 2006 (20th Anniversary)',
@@ -306,6 +308,7 @@ export const PROGRAMS_LIST: ProgramDetail[] = [
   },
   {
     id: 'nic',
+    shortName: 'NIC',
     name: 'NECINA Innovation Challenge (NIC) & Incubator',
     name_zh: 'NECINA 创新挑战赛与创业孵化器 (NIC)',
     subtitle: 'From Breakthrough Idea to Venture-Backable Startup',
@@ -345,6 +348,7 @@ export const PROGRAMS_LIST: ProgramDetail[] = [
   },
   {
     id: 'new',
+    shortName: 'NEW',
     name: 'NECINA Entrepreneur Workshop (NEW)',
     name_zh: 'NECINA 创业实战工坊 (NEW)',
     subtitle: 'Masterclasses on Product Architecture, Sales, and Scaling',
@@ -382,6 +386,7 @@ export const PROGRAMS_LIST: ProgramDetail[] = [
   },
   {
     id: 'sig',
+    shortName: 'SIG',
     name: 'Special Interest Groups (SIG)',
     name_zh: '专业前沿兴趣组 (SIG)',
     subtitle: 'Deep Intelligence (DIG), Mobile, IoT, and iCLUB',
@@ -419,6 +424,7 @@ export const PROGRAMS_LIST: ProgramDetail[] = [
   },
   {
     id: 'eclub',
+    shortName: 'E-Club',
     name: 'Necina Entrepreneurs Club (E-Club)',
     name_zh: 'NECINA 企业家俱乐部 (E-Club)',
     subtitle: 'Connecting Business Owners, Executives, and Capital Partners',
@@ -575,33 +581,34 @@ export const PRESIDENTS_CHRONOLOGY = [
   { year: '2021', name: 'Claire Jin', name_zh: '金世维' },
   { year: '2022', name: 'Scott Li', name_zh: '李思佳' },
   { year: '2023-2024', name: 'John Zhuang', name_zh: '庄辉壮' },
-  { year: '2025-2026', name: 'Bing He', name_zh: '何 冰' }
+  { year: '2025-2026', name: 'Bing He', name_zh: '何 冰' },
+  { year: '2026-2027', name: 'Caroline Lu', name_zh: 'Caroline Lu' }
 ];
 
 export const LEADERSHIP_ROSTER: Leader[] = [
   {
-    name: 'Bing He',
-    name_zh: '何 冰',
-    role: 'NECINA President (2025 - 2026)',
-    role_zh: '现任会长 (2025 - 2026)',
-    bio: 'Seasoned Silicon Valley engineering leader and enterprise consultant with 25+ years of experience guiding top-tier clients to high-ROI tech architectures. MS/BS in Computer Science from University of Toronto.',
-    bio_zh: '拥有 25 年以上顶尖硅谷工程管理与企业咨询经验的技术领袖，擅长协助企业搭建兼具高回报率与高韧性的核心技术架构。毕业于多伦多大学计算机科学系。',
+    name: 'Caroline Lu',
+    name_zh: 'Caroline Lu',
+    role: 'NECINA President (2026 - 2027)',
+    role_zh: '现任会长 (2026 - 2027)',
+    bio: 'Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.',
+    bio_zh: '深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。',
     category: 'executive',
     image: '/NECINA Leaders.jpg'
   },
   {
-    name: 'Caroline Lu',
-    name_zh: 'Caroline Lu',
-    role: 'NECINA President-Elect',
-    role_zh: 'NECINA 候任会长',
-    bio: 'Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.',
-    bio_zh: '深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。',
+    name: 'Bing He',
+    name_zh: '何 冰',
+    role: 'Immediate Past President (2025 - 2026)',
+    role_zh: '前任会长 (2025 - 2026)',
+    bio: 'Seasoned Silicon Valley engineering leader and enterprise consultant with 25+ years of experience guiding top-tier clients to high-ROI tech architectures. MS/BS in Computer Science from University of Toronto.',
+    bio_zh: '拥有 25 年以上顶尖硅谷工程管理与企业咨询经验的技术领袖，擅长协助企业搭建兼具高回报率与高韧性的核心技术架构。毕业于多伦多大学计算机科学系。',
     category: 'executive'
   },
   {
     name: 'John Zhuang',
     name_zh: '庄辉壮',
-    role: 'Immediate Past President (2023 - 2024)',
+    role: 'Past President (2023 - 2024)',
     role_zh: '前任会长 (2023 - 2024)',
     bio: 'Led NECINA through vital post-pandemic revitalization, inaugurating AI-focused technical tracks and strengthening volunteer engagement across New England.',
     bio_zh: '带领 NECINA 顺利完成疫后全面复兴，率先布局生成式 AI 专题系列，极大凝聚了新英格兰地区的志愿者与青年力量。',

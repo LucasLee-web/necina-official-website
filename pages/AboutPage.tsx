@@ -43,10 +43,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
     leadersDesc: isZh
       ? '由德高望重的行业领袖、成功科技创业家与资深高管组成的治理团队。'
       : 'Governed by distinguished industry pioneers, serial entrepreneurs, and dedicated executives.',
-    presidentsTitle: isZh ? '三十载历任会长全录 (1996 - 2026)' : 'Chronicle of NECINA Presidents (1996 - 2026)',
+    presidentsTitle: isZh ? '历任会长名录 (1996 - 2027)' : 'Chronicle of NECINA Presidents (1996 - 2027)',
     presidentsDesc: isZh
-      ? '致敬 29 届会长及其团队无私奉献的志愿者精神与领导力。'
-      : 'Honoring 29 presidential terms of visionary leadership and community service since 1996.',
+      ? '致敬历任会长及其团队无私奉献的志愿者精神与卓越领导力。'
+      : 'Honoring visionary presidential leadership and dedicated community service since 1996.',
     milestonesTitle: isZh ? '组织关键里程碑' : 'Organizational Milestones',
     filterAll: isZh ? '全部领袖' : 'All Leadership',
     filterExec: isZh ? '执行团队' : 'Executive Team',

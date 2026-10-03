@@ -530,15 +530,15 @@ export const HIGHLIGHT_DETAILS = {
           { year: "2014", name: "Ben Tao" }, { year: "2015", name: "John Wang" }, { year: "2016", name: "Tony Tian" },
           { year: "2017", name: "Andy Li" }, { year: "2018", name: "Victor Cao" }, { year: "2019", name: "Harry Gao" },
           { year: "2020", name: "Connie Dai" }, { year: "2021", name: "Claire Jin" }, { year: "2022", name: "Scott Li" },
-          { year: "2023-24", name: "John Zhuang" }, { year: "2025-26", name: "Bing He" },
+          { year: "2023-24", name: "John Zhuang" }, { year: "2025-26", name: "Bing He" }, { year: "2026-27", name: "Caroline Lu" },
         ]
       },
       spotlight: {
         title: "Current President",
-        name: "Bing He",
-        term: "2025-2026",
+        name: "Caroline Lu",
+        term: "2026-2027",
         image: "/NECINA Leaders.jpg",
-        bio: "With over 25 years of engineering and professional service consulting experience, Bing is a seasoned Silicon Valley veteran. He specializes in guiding both internal and external clients toward effective solutions that achieve exceptional ROI. Bing holds MS/BS in CS from University of Toronto.",
+        bio: "Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.",
       }
     }
   },
@@ -696,15 +696,15 @@ export const HIGHLIGHT_DETAILS = {
           { year: "2014", name: "陶东斌 Ben Tao" }, { year: "2015", name: "王振榕 John Wang" }, { year: "2016", name: "田 田 Tony Tian" },
           { year: "2017", name: "李震宇 Andy Li" }, { year: "2018", name: "曹江山 Victor Cao" }, { year: "2019", name: "高 弘 Harry Gao" },
           { year: "2020", name: "戴晨方 Connie Dai" }, { year: "2021", name: "金世维 Claire Jin" }, { year: "2022", name: "李思佳 Scott Li" },
-          { year: "2023-24", name: "庄辉壮 John Zhuang" }, { year: "2025-26", name: "何 冰 Bing He" },
+          { year: "2023-24", name: "庄辉壮 John Zhuang" }, { year: "2025-26", name: "何 冰 Bing He" }, { year: "2026-27", name: "Caroline Lu" },
         ]
       },
       spotlight: {
         title: "现任会长",
-        name: "何冰 Bing He",
-        term: "2025-2026",
+        name: "Caroline Lu",
+        term: "2026-2027",
         image: "/NECINA Leaders.jpg",
-        bio: "何冰拥有超过 25 年的工程经验，是一位经验丰富的硅谷资深人士。他擅长引导客户制定有效的解决方案，实现卓越的投资回报。何冰持有多伦多大学计算机科学硕士和学士学位。",
+        bio: "深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。",
       }
     }
   }

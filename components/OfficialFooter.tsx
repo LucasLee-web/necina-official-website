@@ -80,26 +80,56 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
             </ul>
           </div>
 
-          {/* Initiatives */}
+          {/* Key Programs (9 Official Programs) */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
               {t.initiatives}
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">YES (Youth Service)</Link>
+                <Link to="/programs/youth-impact-program" className="hover:text-white transition-colors">
+                  1. Youth Impact Program
+                </Link>
               </li>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">NIC Innovation Challenge</Link>
+                <Link to="/programs/yes-youth-entrepreneurship" className="hover:text-white transition-colors">
+                  2. YES - Youth Entrepreneurship
+                </Link>
               </li>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">NEW Entrepreneur Workshop</Link>
+                <Link to="/programs/innovation-ntc-conference" className="hover:text-white transition-colors">
+                  3. Innovation NTC Conference
+                </Link>
               </li>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">SIG & Deep Intelligence</Link>
+                <Link to="/programs/innovation-abc-platform" className="hover:text-white transition-colors">
+                  4. Innovation ABC Platform
+                </Link>
               </li>
               <li>
-                <Link to="/programs" className="hover:text-white transition-colors">E-Club (Business Owners)</Link>
+                <Link to="/programs/innovation-sig-groups" className="hover:text-white transition-colors">
+                  5. Innovation SIG Groups
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs/entrepreneur-nic-challenge" className="hover:text-white transition-colors">
+                  6. Entrepreneur NIC Challenge
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs/entrepreneur-cld-leadership" className="hover:text-white transition-colors">
+                  7. Entrepreneur CLD Leadership
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs/necina-clubs" className="hover:text-white transition-colors">
+                  8. NECINA Clubs
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs/necina-chapters" className="hover:text-white transition-colors">
+                  9. NECINA Chapters
+                </Link>
               </li>
             </ul>
           </div>
