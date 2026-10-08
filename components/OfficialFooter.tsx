@@ -18,6 +18,7 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
     contactTitle: isZh ? '联系我们' : 'Contact & Connect',
     home: isZh ? '首页' : 'Home',
     about: isZh ? '关于我们' : 'About Us',
+    leadership: isZh ? '领导架构与董事会' : 'Leadership & Board',
     programs: isZh ? '项目纵览' : 'All Programs',
     events: isZh ? '活动资讯' : 'Events & News',
     media: isZh ? '媒体中心' : 'Media Center',
@@ -64,6 +65,9 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
               </li>
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">{t.about}</Link>
+              </li>
+              <li>
+                <Link to="/leadership" className="hover:text-white transition-colors">{t.leadership}</Link>
               </li>
               <li>
                 <Link to="/events" className="hover:text-white transition-colors">{t.events}</Link>
