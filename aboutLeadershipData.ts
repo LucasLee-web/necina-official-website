@@ -25,6 +25,9 @@ export interface TeamMember {
   bioUrl?: string;
   linkedin?: string;
   email?: string;
+  photo?: string;
+  bio?: string;
+  bio_zh?: string;
 }
 
 export interface TeamGroup {
@@ -39,6 +42,7 @@ export interface LeadershipTerm {
   term_zh: string;
   president: TeamMember;
   vicePresident?: TeamMember;
+  immediatePastPresident?: TeamMember;
   programTeams: TeamGroup[];
   operationTeams: TeamGroup[];
 }
@@ -520,28 +524,43 @@ export const BOARD_MEMBERS_DATA: BoardMember[] = [
 ];
 
 // ============================================================================
-// LEADERSHIP TEAM: 2024-2025 TEAM (Strictly preserved from Source 2)
-// Preserves: Program Teams, Operation Teams, all exact titles and links
+// LEADERSHIP TEAM: 2026-2027 TEAM (Preserves Program Teams & Operation Teams)
 // ============================================================================
 
-export const LEADERSHIP_2024_2025_DATA: LeadershipTerm = {
-  term: '2024-2025 Team',
-  term_zh: '2024-2025 领导团队',
+export const LEADERSHIP_2026_2027_DATA: LeadershipTerm = {
+  term: '2026-2027 Team',
+  term_zh: '2026-2027 领导团队',
   president: {
-    name: 'John (Huizhuang) Zhuang',
-    name_zh: '庄辉壮',
-    role: 'President',
-    role_zh: '会长',
+    name: 'Caroline (Yujing) Lu',
+    name_zh: '吕妤婧',
+    role: 'President (2026 - 2027)',
+    role_zh: '现任会长 (2026 - 2027)',
     bioUrl: 'https://necina.org/content/necina-president',
-    linkedin: 'https://www.linkedin.com/in/huizhuang-john-zhuang/'
+    linkedin: 'https://www.linkedin.com/in/caroline-yujing-lu-cfa-1a08b018/',
+    photo: '/NECINA Leaders.jpg',
+    bio: 'Accomplished education entrepreneur, executive director and cross-generational leadership advocate. Leading NECINA’s digital modernizations, youth-to-founder pipelines, and global industry partnerships.',
+    bio_zh: '深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。'
   },
   vicePresident: {
     name: 'Bing He',
     name_zh: '何 冰',
-    role: 'Vice President',
-    role_zh: '副会长',
+    role: 'Immediate Past President (2025 - 2026)',
+    role_zh: '前任会长 (2025 - 2026)',
     bioUrl: 'https://necina.org/content/necina-president',
-    linkedin: 'https://www.linkedin.com/in/binghe/'
+    linkedin: 'https://www.linkedin.com/in/binghe/',
+    photo: '/images/board/bing_he.jpg',
+    bio: 'Seasoned Silicon Valley engineering leader and enterprise consultant with 25+ years of experience guiding top-tier clients to high-ROI tech architectures. MS/BS in Computer Science from University of Toronto.',
+    bio_zh: '拥有 25 年以上顶尖硅谷工程管理与企业咨询经验的技术领袖，擅长协助企业搭建兼具高回报率与高韧性的核心技术架构。毕业于多伦多大学计算机科学系。'
+  },
+  immediatePastPresident: {
+    name: 'John (Huizhuang) Zhuang',
+    name_zh: '庄辉壮',
+    role: 'Past President (2023 - 2024)',
+    role_zh: '前任会长 (2023 - 2024)',
+    bioUrl: 'https://necina.org/content/necina-president',
+    linkedin: 'https://www.linkedin.com/in/huizhuang-john-zhuang/',
+    bio: 'Led NECINA through vital post-pandemic revitalization, inaugurating AI-focused technical tracks and strengthening volunteer engagement across New England.',
+    bio_zh: '带领 NECINA 顺利完成疫后全面复兴，率先布局生成式 AI 专题系列，极大凝聚了新英格兰地区的志愿者与青年力量。'
   },
   programTeams: [
     {
@@ -843,3 +862,6 @@ export const LEADERSHIP_2024_2025_DATA: LeadershipTerm = {
     }
   ]
 };
+
+export const LEADERSHIP_2024_2025_DATA = LEADERSHIP_2026_2027_DATA;
+export const CURRENT_LEADERSHIP_DATA = LEADERSHIP_2026_2027_DATA;

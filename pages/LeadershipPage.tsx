@@ -63,8 +63,8 @@ export const LeadershipPage: React.FC<LeadershipPageProps> = ({ locale }) => {
 
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal">
               {isZh
-                ? '包含董事会成员、2024-2025 执行与运营团队，以及自 1996 年以来的历任会长名录。'
-                : 'Featuring the Board of Directors, the 2024-2025 Program & Operations Teams, and the complete Presidents Chronicle.'}
+                ? '包含董事会成员、2026-2027 执行与运营团队，以及自 1996 年以来的历任会长名录。'
+                : 'Featuring the Board of Directors, the 2026-2027 Program & Operations Teams, and the complete Presidents Chronicle.'}
             </p>
 
             {/* Sub-navigation Tabs */}
@@ -126,7 +126,7 @@ export const LeadershipPage: React.FC<LeadershipPageProps> = ({ locale }) => {
         <BoardMembersSection locale={locale} />
       )}
 
-      {/* 3. 2024-2025 Team Section (Program Teams & Operations Teams) */}
+      {/* 3. 2026-2027 Team Section (Program Teams & Operations Teams) */}
       {(activeTab === 'all' || activeTab === 'team') && (
         <LeadershipTeamSection locale={locale} />
       )}

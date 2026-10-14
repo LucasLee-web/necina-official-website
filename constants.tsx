@@ -114,8 +114,8 @@ export const ANNIVERSARY_AGENDA: AgendaItem[] = [
   },
   {
     time: '1:00 PM - 1:05 PM',
-    title: 'Welcome Caroline Lu, NECINA President elect',
-    title_zh: '欢迎 NECINA 候任会长 吕妤婧 致辞',
+    title: 'Welcome Caroline Lu, NECINA President',
+    title_zh: '欢迎 NECINA 会长 吕妤婧 致辞',
     location: '395'
   },
   {

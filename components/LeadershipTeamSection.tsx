@@ -27,111 +27,64 @@ export const LeadershipTeamSection: React.FC<LeadershipTeamSectionProps> = ({ lo
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             {isZh
-              ? '严格依照官方领导层名单收录。由项目执行团队与后台运营团队紧密协作，驱动 NECINA 全年品牌峰会、青年创投孵化与会员成长网络。'
-              : 'Official operational roster as published on the authoritative NECINA leadership directory, organized by functional Program Teams and Operations Teams.'}
+              ? '由现任会长 Caroline (吕妤婧) 及主席团带领项目执行团队与后台运营团队紧密协作，驱动 NECINA 2026-2027 全年品牌峰会、青年创投孵化与会员成长网络。'
+              : 'Led by President Caroline Lu and the executive presidency, functional Program Teams and Operations Teams drive NECINA’s 2026-2027 conferences, youth accelerators, and global member networks.'}
           </p>
         </div>
 
-        {/* 1. Executive Presidency Card */}
+        {/* 1. Executive Presidency Cards */}
         <div className="mb-16">
           <div className="text-xs font-black uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
             <Sparkles className="w-4 h-4" />
-            <span>{isZh ? '领导层核心主席团' : 'Executive Leadership'}</span>
+            <span>{isZh ? '核心主席团 (Executive Leadership)' : 'Executive Leadership'}</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* President: John Zhuang */}
-            <div className="p-8 rounded-3xl bg-slate-900/90 border border-primary/30 relative overflow-hidden shadow-2xl group hover:border-primary transition-all">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-2">
-                    {isZh ? data.president.role_zh : data.president.role}
-                  </span>
-                  <h3 className="text-2xl font-black text-white">
-                    {data.president.name}
-                  </h3>
-                  <div className="text-sm font-semibold text-slate-400 mt-0.5">
-                    {isZh ? data.president.name_zh : '庄辉壮 (Huizhuang Zhuang)'}
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* President: Caroline Lu */}
+            <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-slate-900/95 border border-primary/40 relative overflow-hidden shadow-2xl group hover:border-primary transition-all flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
 
-                <div className="flex items-center gap-2">
-                  {data.president.bioUrl && (
-                    <a
-                      href={data.president.bioUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/40 text-xs text-slate-200 transition-colors"
-                    >
-                      <span>{isZh ? '官方履历' : 'Official Bio'}</span>
-                      <ExternalLink className="w-3 h-3 text-primary" />
-                    </a>
-                  )}
-                  {data.president.linkedin && (
-                    <a
-                      href={data.president.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/30 border border-primary/30 text-xs text-primary transition-colors font-bold"
-                    >
-                      <span>LinkedIn</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <p className="text-sm text-slate-300 leading-relaxed pt-2 border-t border-white/10">
-                {isZh
-                  ? '统领 NECINA 2024-2025 年度战略规划、项目执行矩阵与社区发展。'
-                  : 'Leading NECINA 2024-2025 strategic initiatives, program matrix execution, and regional community outreach.'}
-              </p>
-            </div>
-
-            {/* Vice President: Bing He */}
-            {data.vicePresident && (
-              <div className="p-8 rounded-3xl bg-slate-900/90 border border-white/15 relative overflow-hidden shadow-2xl group hover:border-primary/50 transition-all">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/20 bg-slate-950 flex-shrink-0">
+              <div className="space-y-6 relative z-10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-primary/50 bg-slate-950 flex-shrink-0 shadow-xl shadow-primary/20">
                       <img
-                        src="/images/board/bing_he.jpg"
-                        alt={data.vicePresident.name}
-                        className="w-full h-full object-cover object-top"
+                        src={data.president.photo || '/NECINA Leaders.jpg'}
+                        alt={data.president.name}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div>
-                      <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-slate-200 text-xs font-bold uppercase tracking-wider mb-1">
-                        {isZh ? data.vicePresident.role_zh : data.vicePresident.role}
+                      <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-2 border border-primary/30">
+                        ★ {isZh ? data.president.role_zh : data.president.role}
                       </span>
-                      <h3 className="text-xl font-black text-white">
-                        {data.vicePresident.name}
+                      <h3 className="text-2xl sm:text-3xl font-black text-white">
+                        {data.president.name}
                       </h3>
-                      <div className="text-sm font-semibold text-slate-400">
-                        {isZh ? data.vicePresident.name_zh : '何 冰 (Bing He)'}
+                      <div className="text-sm font-semibold text-slate-300 mt-1">
+                        {isZh ? data.president.name_zh : 'Caroline Lu (吕妤婧)'}
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    {data.vicePresident.bioUrl && (
+                  <div className="flex items-center gap-2 self-start sm:self-auto">
+                    {data.president.bioUrl && (
                       <a
-                        href={data.vicePresident.bioUrl}
+                        href={data.president.bioUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/40 text-xs text-slate-200 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-primary/20 border border-white/10 hover:border-primary/40 text-xs text-slate-200 transition-colors font-medium"
                       >
                         <span>{isZh ? '官方履历' : 'Official Bio'}</span>
                         <ExternalLink className="w-3 h-3 text-primary" />
                       </a>
                     )}
-                    {data.vicePresident.linkedin && (
+                    {data.president.linkedin && (
                       <a
-                        href={data.vicePresident.linkedin}
+                        href={data.president.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/30 border border-primary/30 text-xs text-primary transition-colors font-bold"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/30 border border-primary/30 text-xs text-primary transition-colors font-bold"
                       >
                         <span>LinkedIn</span>
                         <ExternalLink className="w-3 h-3" />
@@ -140,13 +93,106 @@ export const LeadershipTeamSection: React.FC<LeadershipTeamSectionProps> = ({ lo
                   </div>
                 </div>
 
-                <p className="text-sm text-slate-300 leading-relaxed pt-2 border-t border-white/10">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed pt-4 border-t border-white/10">
                   {isZh
-                    ? '协助统筹后台运营与跨部门资源协同，25 年以上硅谷工程管理与企业咨询经验。'
-                    : 'Overseeing operations synergy and cross-departmental coordination; 25+ years of Silicon Valley engineering and management consulting background.'}
+                    ? (data.president.bio_zh || '统领 NECINA 2026-2027 年度战略规划与执行，深耕教育赋能与科技社区，致力于推动组织数字化转型、青年跨代传承与全球创新合作网络。')
+                    : (data.president.bio || 'Leading NECINA 2026-2027 strategic vision, digital modernization, youth-to-founder entrepreneurial pipelines, and global partnerships.')}
                 </p>
               </div>
-            )}
+
+              <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span className="font-semibold text-primary">
+                  {isZh ? '当前任期：2026 – 2027' : 'Current Term: 2026 – 2027'}
+                </span>
+                <span>{isZh ? '纽英伦中华资讯网络协会' : 'NECINA Executive President'}</span>
+              </div>
+            </div>
+
+            {/* Adjacent Presidency Leadership: Immediate Past Presidents */}
+            <div className="lg:col-span-5 flex flex-col gap-5 justify-between">
+              {/* Bing He */}
+              {data.vicePresident && (
+                <div className="p-6 rounded-3xl bg-slate-900/90 border border-white/10 relative overflow-hidden shadow-xl hover:border-primary/40 transition-all flex-1 flex flex-col justify-between">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/20 bg-slate-950 flex-shrink-0">
+                        <img
+                          src={data.vicePresident.photo || '/images/board/bing_he.jpg'}
+                          alt={data.vicePresident.name}
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                      <div>
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider mb-1">
+                          {isZh ? data.vicePresident.role_zh : data.vicePresident.role}
+                        </span>
+                        <h4 className="text-lg font-bold text-white">
+                          {data.vicePresident.name}
+                        </h4>
+                        <div className="text-xs text-slate-400">
+                          {isZh ? data.vicePresident.name_zh : '何 冰 (Bing He)'}
+                        </div>
+                      </div>
+                    </div>
+
+                    {data.vicePresident.linkedin && (
+                      <a
+                        href={data.vicePresident.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/5 hover:bg-primary/20 text-slate-300 hover:text-primary transition-colors"
+                        title="LinkedIn"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+
+                  <p className="text-xs text-slate-300 leading-relaxed pt-2 border-t border-white/5">
+                    {isZh
+                      ? (data.vicePresident.bio_zh || '拥有 25 年以上顶尖硅谷工程管理与企业咨询经验的技术领袖。')
+                      : (data.vicePresident.bio || 'Seasoned Silicon Valley engineering leader and enterprise consultant with 25+ years experience.')}
+                  </p>
+                </div>
+              )}
+
+              {/* John Zhuang */}
+              {data.immediatePastPresident && (
+                <div className="p-6 rounded-3xl bg-slate-900/90 border border-white/10 relative overflow-hidden shadow-xl hover:border-primary/40 transition-all flex-1 flex flex-col justify-between">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div>
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider mb-1">
+                        {isZh ? data.immediatePastPresident.role_zh : data.immediatePastPresident.role}
+                      </span>
+                      <h4 className="text-lg font-bold text-white">
+                        {data.immediatePastPresident.name}
+                      </h4>
+                      <div className="text-xs text-slate-400">
+                        {isZh ? data.immediatePastPresident.name_zh : '庄辉壮 (Huizhuang Zhuang)'}
+                      </div>
+                    </div>
+
+                    {data.immediatePastPresident.linkedin && (
+                      <a
+                        href={data.immediatePastPresident.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/5 hover:bg-primary/20 text-slate-300 hover:text-primary transition-colors"
+                        title="LinkedIn"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+
+                  <p className="text-xs text-slate-300 leading-relaxed pt-2 border-t border-white/5">
+                    {isZh
+                      ? (data.immediatePastPresident.bio_zh || '带领 NECINA 顺利完成疫后全面复兴，率先布局生成式 AI 专题系列。')
+                      : (data.immediatePastPresident.bio || 'Led NECINA through post-pandemic revitalization, inaugurating AI technical tracks.')}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
