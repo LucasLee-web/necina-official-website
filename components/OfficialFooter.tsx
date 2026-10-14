@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Locale } from '../types';
+import { OFFICIAL_PROGRAMS } from '../programsData';
 
 interface OfficialFooterProps {
   locale: Locale;
@@ -67,7 +68,14 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
                 <Link to="/about" className="hover:text-white transition-colors">{t.about}</Link>
               </li>
               <li>
-                <Link to="/leadership" className="hover:text-white transition-colors">{t.leadership}</Link>
+                <Link to="/about?tab=board" className="hover:text-white transition-colors">
+                  {isZh ? 'NECINA董事会' : 'NECINA Board'}
+                </Link>
+              </li>
+              <li>
+                <Link to="/about?tab=team" className="hover:text-white transition-colors">
+                  {isZh ? 'NECINA团队' : 'NECINA Team'}
+                </Link>
               </li>
               <li>
                 <Link to="/events" className="hover:text-white transition-colors">{t.events}</Link>
@@ -90,51 +98,13 @@ export const OfficialFooter: React.FC<OfficialFooterProps> = ({ locale }) => {
               {t.initiatives}
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
-              <li>
-                <Link to="/programs/youth-impact-program" className="hover:text-white transition-colors">
-                  Youth Impact Program
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/yes-youth-entrepreneurship" className="hover:text-white transition-colors">
-                  YES - Youth Entrepreneurship
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/innovation-ntc-conference" className="hover:text-white transition-colors">
-                  Innovation NTC Conference
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/innovation-abc-platform" className="hover:text-white transition-colors">
-                  Innovation ABC Platform
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/innovation-sig-groups" className="hover:text-white transition-colors">
-                  Innovation SIG Groups
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/entrepreneur-nic-challenge" className="hover:text-white transition-colors">
-                  Entrepreneur NIC Challenge
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/entrepreneur-cld-leadership" className="hover:text-white transition-colors">
-                  Entrepreneur CLD Leadership
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/necina-clubs" className="hover:text-white transition-colors">
-                  NECINA Clubs
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/necina-chapters" className="hover:text-white transition-colors">
-                  NECINA Chapters
-                </Link>
-              </li>
+              {OFFICIAL_PROGRAMS.map((prog) => (
+                <li key={prog.slug}>
+                  <Link to={`/programs/${prog.slug}`} className="hover:text-white transition-colors">
+                    {prog.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

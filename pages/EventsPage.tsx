@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Bell, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Calendar, MapPin, Bell, Clock, ArrowRight, CheckCircle2, ExternalLink, Image as ImageIcon } from 'lucide-react';
 import type { Locale } from '../types';
 import { EVENTS_LIST } from '../officialContent';
 
@@ -11,8 +11,44 @@ interface EventsPageProps {
 
 export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
   const isZh = locale === 'zh';
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [activeTab, setActiveTab] = useState<'past' | 'upcoming'>('past');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paramCategory = searchParams.get('category');
+  const paramTab = searchParams.get('tab');
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    paramCategory && ['Flagship', 'AI & Tech', 'Youth', 'Entrepreneurship'].includes(paramCategory)
+      ? paramCategory
+      : 'all'
+  );
+  const [activeTab, setActiveTab] = useState<'past' | 'upcoming'>(
+    paramTab === 'upcoming' ? 'upcoming' : 'past'
+  );
+
+  useEffect(() => {
+    if (paramCategory && ['Flagship', 'AI & Tech', 'Youth', 'Entrepreneurship'].includes(paramCategory)) {
+      setSelectedCategory(paramCategory);
+    }
+  }, [paramCategory]);
+
+  const handleCategorySelect = (catId: string) => {
+    setSelectedCategory(catId);
+    if (catId === 'all') {
+      searchParams.delete('category');
+    } else {
+      searchParams.set('category', catId);
+    }
+    setSearchParams(searchParams);
+  };
+
+  const handleTabSelect = (tab: 'past' | 'upcoming') => {
+    setActiveTab(tab);
+    if (tab === 'past') {
+      searchParams.delete('tab');
+    } else {
+      searchParams.set('tab', tab);
+    }
+    setSearchParams(searchParams);
+  };
 
   const categories = [
     { id: 'all', label: isZh ? '全部类别' : 'All Categories' },
@@ -92,7 +128,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
           <div className="mt-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-white/10 text-xs font-bold w-fit">
               <button
-                onClick={() => setActiveTab('past')}
+                onClick={() => handleTabSelect('past')}
                 className={`px-4 py-2 rounded-lg transition-all ${
                   activeTab === 'past' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
@@ -100,7 +136,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                 {t.pastTab}
               </button>
               <button
-                onClick={() => setActiveTab('upcoming')}
+                onClick={() => handleTabSelect('upcoming')}
                 className={`px-4 py-2 rounded-lg transition-all ${
                   activeTab === 'upcoming' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
@@ -114,7 +150,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
+                  onClick={() => handleCategorySelect(cat.id)}
                   className={`px-3 py-1.5 rounded-lg font-semibold transition-all ${
                     selectedCategory === cat.id
                       ? 'bg-white/15 text-white border border-white/20'
@@ -151,7 +187,10 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                 >
                   <div>
                     {/* Event Banner */}
-                    <div className="relative h-60 overflow-hidden">
+                    <Link
+                      to={`/events/${ev.slug || ev.id}`}
+                      className="block relative h-60 overflow-hidden cursor-pointer"
+                    >
                       <img
                         src={ev.image}
                         alt={isZh ? ev.title_zh : ev.title}
@@ -169,8 +208,13 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                             ★ 30th Anniversary
                           </span>
                         )}
+                        {ev.id === 'yes-kickoff-launch' && (
+                          <span className="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-xs font-bold text-emerald-300 border border-emerald-500/40">
+                            ★ {isZh ? '全新发布' : 'Newest'}
+                          </span>
+                        )}
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Content Details */}
                     <div className="p-8 space-y-5">
@@ -181,9 +225,17 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
-                        {isZh ? ev.title_zh : ev.title}
-                      </h3>
+                      <Link to={`/events/${ev.slug || ev.id}`} className="block">
+                        <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                          {isZh ? ev.title_zh : ev.title}
+                        </h3>
+                      </Link>
+
+                      {(ev.subtitle || ev.subtitle_zh) && (
+                        <p className="text-xs font-semibold text-primary/90 bg-primary/10 border border-primary/20 rounded-lg px-3 py-1.5">
+                          {isZh ? ev.subtitle_zh : ev.subtitle}
+                        </p>
+                      )}
 
                       <p className="text-sm text-slate-300 leading-relaxed font-normal">
                         {isZh ? ev.description_zh : ev.description}
@@ -208,31 +260,46 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                     </div>
                   </div>
 
-                  {/* Action Bar without any register button */}
+                  {/* Action Bar */}
                   <div className="p-8 pt-0">
-                    <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4">
+                    <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
                       <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                         <span>{t.concluded}</span>
                       </span>
 
-                      {ev.id === '30th-gala' ? (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {ev.posterImage && (
+                          <Link
+                            to={`/events/${ev.slug || ev.id}?view=poster`}
+                            className="text-xs font-semibold text-emerald-300 hover:text-white px-2.5 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 transition-colors flex items-center gap-1.5"
+                            title={isZh ? '查看活动官方宣传海报与宣传页' : 'View Official Promotional Poster Flyer'}
+                          >
+                            <ImageIcon className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>{isZh ? '宣传海报' : 'Poster Flyer'}</span>
+                          </Link>
+                        )}
+
+                        {ev.registrationUrl && (
+                          <a
+                            href={ev.registrationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-semibold text-slate-300 hover:text-white px-2.5 py-1.5 rounded-lg border border-white/10 hover:border-white/20 transition-colors flex items-center gap-1"
+                          >
+                            <span>{isZh ? '报名通道' : 'Register'}</span>
+                            <ExternalLink className="w-3 h-3 text-slate-400" />
+                          </a>
+                        )}
+
                         <Link
-                          to="/anniversary"
-                          className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+                          to={`/events/${ev.slug || ev.id}`}
+                          className="text-xs font-bold text-primary hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary transition-colors"
                         >
-                          <span>{isZh ? '查看 30 周年盛典回顾' : 'View 30th Anniversary Recap'}</span>
+                          <span>{isZh ? '查看活动详情' : 'View Event Details'}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
-                      ) : (
-                        <Link
-                          to="/media"
-                          className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
-                        >
-                          <span>{isZh ? '查看多媒体与照片' : 'View Media & Photos'}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
-                      )}
+                      </div>
                     </div>
                   </div>
                 </div>

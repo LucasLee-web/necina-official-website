@@ -298,24 +298,22 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({ locale }) => {
               ? '九大项目按官方序列（01 - 09）展示，点击上方横排缩写按钮可快速定位，点击卡片进入独立专属详情页。'
               : 'All 9 initiatives are preserved in official sequence (01 - 09). Use the abbreviation buttons above for quick filtering, and click any card for its dedicated detail page.'}
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-slate-500">
-            <span>YIP</span>
-            <span>•</span>
-            <span>YES</span>
-            <span>•</span>
-            <span>NTC</span>
-            <span>•</span>
-            <span>NEW</span>
-            <span>•</span>
-            <span>SIG</span>
-            <span>•</span>
-            <span>NIC</span>
-            <span>•</span>
-            <span>CLD</span>
-            <span>•</span>
-            <span>E-Club</span>
-            <span>•</span>
-            <span>Chapters</span>
+          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 text-slate-500 font-semibold">
+            {OFFICIAL_PROGRAMS.map((prog, idx) => (
+              <React.Fragment key={prog.slug}>
+                {idx > 0 && <span className="text-slate-700">•</span>}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedSlug(prog.slug);
+                    window.scrollTo({ top: 260, behavior: 'smooth' });
+                  }}
+                  className="hover:text-primary transition-colors cursor-pointer text-xs"
+                >
+                  {prog.shortName}
+                </button>
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </section>

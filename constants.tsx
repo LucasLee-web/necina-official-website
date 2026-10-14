@@ -101,7 +101,7 @@ export const ANNIVERSARY_AGENDA: AgendaItem[] = [
     title: 'Physical AI: Tools, Comparisons, and Replacements?',
     title_zh: '物理 AI：工具、对比与替代？',
     description: 'Speakers: Ira Renfrew MBA, Co-founder, CPO at Familiar Machines & Magic; Pei Qi MS, MBA, Founder and General Partner of AIRX Inno Venture; Javier Segovia MS, MBA, Co-Founder, Architechtures. Moderator: Tony Ho MS, MBA, VP of BD, Segway-ninebot',
-    description_zh: '演讲嘉宾：Ira Renfrew MBA; 戚佩 MS, MBA（AIRX 创投创始人兼普通合伙人）; Javier Segovia MS, MBA. 主持人：何同祖 MS, MBA（Segway-ninebot 业务发展副总裁）',
+    description_zh: '演讲嘉宾：Ira Renfrew MBA; 戚佩 MS, MBA（AIRX 创投创始人兼普通合伙人）; Javier Segovia MS, MBA. 主持人：贺通 MS, MBA（Segway-ninebot 业务发展副总裁）',
     location: '395'
   },
   {
@@ -115,7 +115,7 @@ export const ANNIVERSARY_AGENDA: AgendaItem[] = [
   {
     time: '1:00 PM - 1:05 PM',
     title: 'Welcome Caroline Lu, NECINA President elect',
-    title_zh: '欢迎 NECINA 候任会长 卢妤婧 致辞',
+    title_zh: '欢迎 NECINA 候任会长 吕妤婧 致辞',
     location: '395'
   },
   {
@@ -696,12 +696,12 @@ export const HIGHLIGHT_DETAILS = {
           { year: "2014", name: "陶东斌 Ben Tao" }, { year: "2015", name: "王振榕 John Wang" }, { year: "2016", name: "田 田 Tony Tian" },
           { year: "2017", name: "李震宇 Andy Li" }, { year: "2018", name: "曹江山 Victor Cao" }, { year: "2019", name: "高 弘 Harry Gao" },
           { year: "2020", name: "戴晨方 Connie Dai" }, { year: "2021", name: "金世维 Claire Jin" }, { year: "2022", name: "李思佳 Scott Li" },
-          { year: "2023-24", name: "庄辉壮 John Zhuang" }, { year: "2025-26", name: "何 冰 Bing He" }, { year: "2026-27", name: "卢妤婧 Caroline Lu" },
+          { year: "2023-24", name: "庄辉壮 John Zhuang" }, { year: "2025-26", name: "何 冰 Bing He" }, { year: "2026-27", name: "吕妤婧 Caroline Lu" },
         ]
       },
       spotlight: {
         title: "现任会长",
-        name: "卢妤婧",
+        name: "吕妤婧",
         term: "2026-2027",
         image: "/NECINA Leaders.jpg",
         bio: "深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。",

@@ -92,117 +92,95 @@ export interface OfficialProgram {
 }
 
 export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
-  // 1. Youth Impact Program
+  // 1. NECINA Clubs
   {
     id: 1,
-    slug: 'youth-impact-program',
-    name: 'Youth Impact Program',
-    name_zh: 'Youth Impact Program (青年影响力计划)',
-    shortName: 'YIP',
-    category: 'youth',
-    categoryLabel: 'Youth & Leadership',
-    categoryLabel_zh: '青年与领导力',
-    sourceUrl: 'https://necina.org/content/youth-impact-program',
-    tagline: 'Ready to Shape the Next Generation of Leaders?',
-    tagline_zh: '准备好塑造下一代青年领袖了吗？',
-    intro: 'A premier initiative empowering high school and college students to build real-world venture experience, guided by elite collegiate mentors and seasoned industry executives.',
-    intro_zh: '专为高中生和大学生打造的标杆性赋能计划，由顶尖名校大学生导师和资深行业高管带队，深入体验真实商业与社会影响力创业。',
+    slug: 'necina-clubs',
+    name: 'NECINA Clubs',
+    name_zh: 'NECINA Clubs (eCLUB / iCLUB / WeCLUB 俱乐部矩阵)',
+    shortName: 'E-Club',
+    category: 'community',
+    categoryLabel: 'Executive & Peer Communities',
+    categoryLabel_zh: '高管与同行社群',
+    sourceUrl: 'https://necina.org/content/eclub-iclub-weclub',
+    tagline: 'eCLUB + iCLUB + WeCLUB — A Blended Ecosystem for Founders, Innovators & Community',
+    tagline_zh: '三维融合的互助俱乐部矩阵：凝聚科技创始人、极客工程师与社区菁英',
+    intro: 'NECINA’s club matrix provides vetted, member-only peer environments for company founders, technology builders, and community advocates to collaborate and scale.',
+    intro_zh: 'NECINA 俱乐部矩阵构建了受邀准入的高端同行交流圈，为科技企业创始人、前沿技术开发者及社区骨干提供深度互助、投资对接与资源共享平台。',
     overview: [
-      'Whether you are a student looking to build real-world venture experience or an industry professional looking to mentor top-tier young talent, we want you involved.',
-      'The Youth Impact Program bridges generational divides by pairing high school participants with high-achieving college mentors from Harvard, Columbia, Duke Law, and Babson, providing hands-on project-based venture training.',
-      'Participants develop leadership, team collaboration, public pitching, and entrepreneurial execution while tackling meaningful community and technological challenges.'
+      'The NECINA Entrepreneur Club (eCLUB), blended in 2023 with Innovation iCLUB and Community WeCLUB, is a premier peer community of technology company founders, owners, and C-level executives.',
+      'The mission is to help member companies accelerate growth by connecting members to senior serial founders, venture funding sources, professional service firms, and cross-border commercial opportunities.',
+      'Members maintain active connections through informal face-to-face meetups, dedicated WeChat and LinkedIn executive roundtables, speaker consultations, and commercial showcase exhibitions at NECINA conferences.'
     ],
     overview_zh: [
-      '无论您是渴望积累实操创业经验的学生，还是希望辅导顶尖年轻人才的行业专业人士，我们都真诚欢迎您的加入。',
-      '青年影响力计划通过跨代际传承体系，将高中学员与来自哈佛、哥伦比亚大学、杜克大学法学院和百森商学院的优秀大学导师结对，开展基于项目的实战创业训练。',
-      '学员将在解决具有现实意义的社区及科技挑战过程中，全面提升领导力、团队协作、公众路演和商业执行力。'
+      'NECINA 企业家俱乐部（eCLUB）于 2023 年全面融合创新俱乐部（iCLUB）与社区俱乐部（WeCLUB），是专为科技公司创始人、企业法人及 C 级核心高管打造的高端商业互助社群。',
+      '俱乐部的使命是通过连接更具经验的成功连环创业先辈、一级创投资本、专业法律与财税机构以及亚洲跨境商业伙伴，为成员企业赋能解惑、拓展广阔商机。',
+      '成员通过线下闭门私享聚会、专属微信与 LinkedIn 高管圈、垂直主题专家问诊以及在 NECINA 大型科技峰会上的企业商业展位，长期保持紧密互助与商业协同。'
     ],
-    heroImage: '/programs/youth_impact_team.png',
-    statusBadge: 'Applications for Fall 2026 Open July 1st',
-    statusBadge_zh: '2026 年秋季批次申请将于 7 月 1 日开放',
-    established: '2024',
-    audience: 'High school students (grades 9-12) & college undergraduates',
-    audience_zh: '9-12 年级高中生及在校大学生',
+    heroImage: '/programs/eclub_showcase.jpg',
+    statusBadge: 'Member-Only Executive Network Active',
+    statusBadge_zh: '会员制高管专属圈活跃运作中',
+    established: '2011',
+    audience: 'Technology company owners, founders, C-level executives, and active NECINA members',
+    audience_zh: '科技企业法人、初创创始人、C 级高管及 NECINA 正式会员',
     highlights: [
-      'Direct pairing with Ivy League & top-tier college mentors',
-      'Hands-on venture creation and real-world project incubation',
-      'Guidance on college admissions, leadership portfolios, and career trajectory',
-      'Final project showcase presented to venture capitalists and corporate leaders'
+      'Informal Member-Only Meetups: Face-to-face dinners and executive salons to share real metrics, pivots, and peer advisory',
+      'WeChat & LinkedIn Peer Circles: 24/7 confidential communication and real-time business opportunities exchange',
+      'Subject Matter Expert Sessions: Direct consultations with leading patent attorneys, corporate tax specialists, and VCs',
+      'Business Showcase at NECINA Events: Prominent exhibition space at annual conferences (over 15 member companies showcase annually)',
+      'Cross-Border Synergies: Establishing business connections and supply chain channels with Asian technology hubs'
     ],
     highlights_zh: [
-      '常春藤名校及顶尖大学导师一对一专项辅导',
-      '实战型社会影响力创业项目孵化与动手实践',
-      '名校升学背景打造、领导力成果集建设及职业长远规划',
-      '面向知名风险投资人与企业高管的年度结业项目路演'
+      '受邀制闭门私享沙龙：定期举办面对面晚宴与高管交流会，坦诚分享经营数据、转型阵痛与实战决策建议',
+      '微信与 LinkedIn 高管同行圈：全天候高效连接，实时交流行业情报、投融资线索与海内外合作商机',
+      '行业专家面对面咨询会：直面顶级知识产权律师、跨国财税专家与知名投资人进行一对一闭门问诊',
+      'NECINA 旗舰峰会商业展台特权：在每年数千人参与的年会与科技大会设立专属展台（每年 15+ 会员企业参展推广）',
+      '跨国业务与全球供应链整合：架设与亚洲及全球主要科技高地之间的商业合作、技术转让与渠道拓展桥梁'
     ],
-    mentors: [
+    activities: [
       {
-        name: 'Sophie Xu',
-        role: 'Program Director',
-        role_zh: '项目总监',
-        company: 'NECINA Leadership',
-        linkedin: 'https://www.linkedin.com/in/sophiexuu/'
+        title: 'Informal Member-Only Meetups',
+        title_zh: '非正式闭门会员见面沙龙',
+        description: 'Held in relaxed environments to build authentic trust, share operational successes, discuss hiring dilemmas, and seek peer executive advice.',
+        description_zh: '在轻松真诚的氛围中面对面深入沟通，建立深度信任，分享经营心得、高管招聘困境与实战避坑经验。',
+        image: '/programs/eclub_meetup.jpg'
       },
       {
-        name: 'Rory Li',
-        role: 'College Mentor — Incoming JD Student',
-        role_zh: '大学导师 —— 杜克大学法学院法学博士生',
-        company: 'Duke Law School'
+        title: 'LinkedIn & WeChat Peer Discussions',
+        title_zh: '高管微信与 LinkedIn 专属社群',
+        description: 'Keeping club founders tightly connected day to day with curated market intel, referral requests, and investment intros.',
+        description_zh: '保持俱乐部创始人社群全天候高频互动，快速传递前沿市场动态、高管人才引荐与天使投资对接。',
+        image: '/programs/eclub_social.jpg'
       },
       {
-        name: 'Grade Luo',
-        role: 'College Mentor — Math + Neuro',
-        role_zh: '大学导师 —— 数学与神经科学专业',
-        company: 'Harvard University'
+        title: 'Speaker & Subject Matter Consultations',
+        title_zh: '垂直领域专家专题咨询与研讨',
+        description: 'Dedicated sessions where member founders consult with corporate M&A bankers, international patent attorneys, and growth marketers.',
+        description_zh: '定期举办专业问诊会，特邀企业兼并重组投资银行家、国际专利律所高级合伙人与增长专家现场解题。',
+        image: '/programs/eclub_expert.jpg'
       },
       {
-        name: 'Sophia Hann',
-        role: 'College Mentor',
-        role_zh: '大学导师',
-        company: 'Columbia University'
-      },
-      {
-        name: 'Annie Chan',
-        role: 'College Mentor',
-        role_zh: '大学导师',
-        company: 'Babson College'
-      },
-      {
-        name: 'Michelle Liu',
-        role: 'High School Officer',
-        role_zh: '高中部干事',
-        company: 'High School Junior'
-      },
-      {
-        name: 'Ivan Chan',
-        role: 'High School Officer',
-        role_zh: '高中部干事',
-        company: 'High School Junior'
-      },
-      {
-        name: 'Lucas Cao',
-        role: 'High School Officer',
-        role_zh: '高中部干事',
-        company: 'High School Sophomore'
-      },
-      {
-        name: 'Austin Xu',
-        role: 'High School Officer',
-        role_zh: '高中部干事',
-        company: 'High School Freshman'
+        title: 'Business Showcase at NECINA Conferences',
+        title_zh: 'NECINA 盛典企业商业高光展台',
+        description: 'Member startups promote their products, hardware devices, and enterprise SaaS solutions directly to thousands of conference attendees.',
+        description_zh: '会员企业在每届盛典上直接向数千名现场参会高管、技术采购决策者与投资机构展示前沿技术与产品方案。',
+        image: '/programs/eclub_showcase.jpg'
       }
     ],
     applicationInfo: {
-      status: 'Applications for the Fall 2026, open July 1st.',
-      status_zh: '2026 年秋季批次申请将于 7 月 1 日正式开放。',
-      contactEmail: 'info@necina.org'
+      status: 'Open to Active NECINA Members who are Founders or C-Level Tech Executives',
+      status_zh: '面向科技公司创始人、企业主与 C 级高管会员开放申请',
+      applyUrl: 'http://bit.ly/1muKWJc',
+      applyText: 'SUBMIT E-CLUB APPLICATION',
+      applyText_zh: '提交 eCLUB 会员申请表',
+      contactEmail: 'eclub@necina.org'
     },
     galleryImages: [
       {
-        src: '/programs/youth_impact_team.png',
-        alt: 'The Changemakers of Youth Impact Program',
-        caption: 'The Changemakers — Youth Impact Program Leadership Team',
-        caption_zh: '青年影响力计划领导团队合影（The Changemakers）'
+        src: '/programs/eclub_members_logos.jpg',
+        alt: 'NECINA E-Club Member Companies Matrix',
+        caption: 'Partial Graphic of Vetted Technology Member Companies in NECINA E-Club',
+        caption_zh: 'NECINA eCLUB 部分会员科技企业品牌墙'
       }
     ]
   },
@@ -313,95 +291,72 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
     ]
   },
 
-  // 3. Innovation NTC Conference
+  // 3. Innovation SIG Groups
   {
     id: 3,
-    slug: 'innovation-ntc-conference',
-    name: 'Innovation NTC Conference',
-    name_zh: 'Innovation NTC Conference (NTC 年度科技峰会)',
-    shortName: 'NTC',
+    slug: 'innovation-sig-groups',
+    name: 'Innovation SIG Groups',
+    name_zh: 'Innovation SIG Groups (前沿技术兴趣组)',
+    shortName: 'SIG',
     category: 'innovation',
-    categoryLabel: 'Flagship Conferences',
-    categoryLabel_zh: '旗舰行业盛会',
-    sourceUrl: 'https://necina.org/content/conferences',
-    tagline: 'NECINA Premier Technology Conferences & High-Impact Domain Summits',
-    tagline_zh: '汇聚前沿科技变革与华人商业领袖的旗舰盛典与垂直峰会',
-    intro: 'Since 1996, NECINA’s flagship annual conference (NTC) and thematic summits have brought together thousands of innovators, corporate executives, and researchers.',
-    intro_zh: '自 1996 年以来，NECINA 年度科技峰会（NTC）及系列垂直前沿专题大会，已成为新英格兰地区连接学术界、工业界与创新投资圈的标志性高端交流高地。',
+    categoryLabel: 'Technical Special Interest Groups',
+    categoryLabel_zh: '专业前沿技术组',
+    sourceUrl: 'https://necina.org/content/sig',
+    tagline: 'Deep Intelligence, Mobile Solutions, and IoT Networks Led by Domain Authorities',
+    tagline_zh: '汇聚数百名顶尖工程师与科学家，深耕深度智能、移动互联与物联网硬件',
+    intro: 'NECINA’s Special Interest Groups (SIG) unite hundreds of savvy experts, engineering leaders, and students in specialized technical domains.',
+    intro_zh: 'NECINA 专业前沿兴趣组（SIG）汇聚数百位资深技术专家、工程架构师与学者，通过双周前沿技术研讨、代码精读沙龙与实操 Hackathon 推动技术进阶。',
     overview: [
-      'The Innovation NTC Conference serves as the crown jewel of NECINA’s annual calendar, featuring globally renowned keynote speakers, thought-provoking panel discussions, and high-impact innovation showcases.',
-      'Complementing the annual flagship conference, NECINA hosts eight specialized conference tracks throughout the calendar year, focusing on Artificial Intelligence, China-US cross-border innovation, medical devices, IoT, and leadership career growth.',
-      'Attendees include Fortune 500 technology leaders, university research fellows from Harvard, MIT, and Boston University, promising startup founders, and angel investors.'
+      'NECINA Special Interest Groups provide dedicated peer platforms where engineers, AI practitioners, researchers, and hobbyists collaborate on bleeding-edge technologies.',
+      'Current active divisions include the Deep Intelligence Group (DIG: AI & Deep Learning, led by Victor Cao), the NECINA Mobile Group (led by Lin Song and Geoff Xiao), and the NECINA IoT Group (led by John Zhuang, Nancy Li, and Brandon Chen).',
+      'Activities feature bi-weekly technical paper breakdowns, architecture teardowns, hands-on LLM hack days, and joint events with MIT, Harvard, and industry leaders.'
     ],
     overview_zh: [
-      'NTC 年度科技峰会是 NECINA 全年活动日历中的重中之重，特邀享誉全球的主旨演讲嘉宾、高规格闭门圆桌论坛及前沿技术成果展示。',
-      '除年度旗舰大会外，NECINA 贯穿全年定期组织八大系列专题大会，涵盖人工智能、中美科技合作、医疗器械与生命科学、物联网以及职场高管成长。',
-      '参会者涵盖世界 500 强科技公司高管、来自哈佛、MIT、波士顿大学的顶尖学者、极具成长潜力的初创企业创始人与天使投资机构。'
+      'NECINA 专业技术兴趣组为工程师、AI 从业者、高校学者与技术极客提供了专注于垂直细分技术的高端同行交流圈。',
+      '目前旗下设有三大活跃专业分舵：深度智能小组（DIG：专注于 AI 与深度学习，由曹江山领衔）、移动互联小组（由宋林与肖建峰领衔）及物联网硬件小组（由庄辉壮、李楠与陈斌领衔）。',
+      '活动包括双周顶级学术论文精读、开源微服务架构拆解、大模型动手营，以及与哈佛、MIT 学者的定期技术沙龙。'
     ],
-    heroImage: '/necina_tech_workshop.jpg',
-    statusBadge: 'Annual Conference & Symposia Series',
-    statusBadge_zh: '年度大会与专题研讨会系列',
-    established: '1996',
-    audience: 'Technology professionals, engineering leaders, entrepreneurs, and researchers',
-    audience_zh: '科技专业人士、工程总监、创业团队与高校科研人员',
+    heroImage: '/necina_boston_hub.jpg',
+    statusBadge: 'Bi-Weekly Tech Salons Active',
+    statusBadge_zh: '双周前沿极客沙龙活跃开展',
+    established: '2016',
+    audience: 'Software engineers, AI researchers, data scientists, and hardware developers',
+    audience_zh: '软件架构师、AI 研究员、数据科学家与智能硬件极客',
     highlights: [
-      'Keynotes by world-renowned scientists, Turing / Nobel laureates, and tech founders',
-      'Panel discussions tackling disruptive technological shifts and market trends',
-      'Innovation showcase featuring emerging startup prototypes and commercial demos',
-      'Executive networking banquets connecting over 5,000 community professionals'
+      'NECINA DIG (Deep Intelligence Group): Led by Victor Cao. Hundreds of savvy experts and students in AI, Deep Learning, and GenAI workflows',
+      'NECINA Mobile Group: Led by Lin Song & Geoff Xiao, focusing on mobile solutions, cross-platform apps, and ubiquitous user computing',
+      'NECINA IoT Group: Led by Analog Devices / Huawei veteran John Zhuang, Verizon executive Nancy Li, and Soteria Networks CEO Brandon Chen',
+      'Exploration of billions of connected devices, edge computing, smart industrial sensors, and real-world value-add deployment',
+      'Hands-on hackathons, technical demonstrations, code walkthroughs, and executive networking'
     ],
     highlights_zh: [
-      '享誉全球的顶级科学家、图灵奖/诺奖得主与科技独角兽创始人主旨演讲',
-      '深度剖析前沿技术变革、宏观资本走势与行业破局痛点的专题论坛',
-      '汇聚早期高科技初创企业原型、专利成果与商业 Demo 的创新展区',
-      '连接 5,000+ 专业会员与跨国企业高管的闭门交流晚宴与对接平台'
+      '深度智能小组 (DIG)：由曹江山（Victor Cao）领衔，数百位 AI 与深度学习专家、工程师及高校学子共同探讨最新算法与生成式大模型应用',
+      '移动互联小组：由宋林（Lin Song）与肖建峰（Geoff Xiao）领衔，专注跨平台移动终端方案、微前端交互及影响亿万用户日常生活的移动科技',
+      '物联网小组 (IoT Group)：由 Analog Devices 与华为资深专家庄辉壮（John Zhuang）、Verizon 高管李楠（Nancy Li）及 Soteria Networks CEO 陈斌（Brandon Chen）领衔',
+      '立足新英格兰雄厚产业基础，深度布局千亿级智能物联网硬件生态、边缘智能终端与工业级部署落地',
+      '定期组织线下动手黑客松、架构复盘研讨会、前沿代码走查与行业技术酒会'
     ],
     modules: [
       {
-        title: 'NECINA Annual Conference (NTC)',
-        title_zh: 'NECINA 年度科技盛典 (NTC)',
-        description: 'The premier annual gathering bringing together the entire New England high-tech ecosystem to celebrate innovation, visionary leadership, and community impact.'
+        title: 'NECINA DIG (Deep Intelligence Group)',
+        title_zh: 'NECINA 深度智能前沿小组 (DIG)',
+        description: 'Led by Victor Cao. Made of hundreds of savvy experts, professionals, and students in AI, LLMs, computer vision, and neural reasoning.'
       },
       {
-        title: 'Artificial Intelligence and Deep Learning Conference (ABC)',
-        title_zh: '人工智能与深度学习大会 (ABC)',
-        description: 'Dedicated to generative AI, large language models, autonomous agents, computer vision, and neural compute infrastructure.'
+        title: 'NECINA Mobile Solutions Group',
+        title_zh: 'NECINA 移动互联与跨端应用小组',
+        description: 'Led by Lin Song and Geoff Xiao. Focuses on mobile architectures, progressive web technologies, and ubiquitous consumer applications.'
       },
       {
-        title: 'China Conference (SIG)',
-        title_zh: '中国与全球科技合作峰会 (SIG)',
-        description: 'Exploring cross-border market synergies, international venture capital trends, and bilateral technological advancements.'
-      },
-      {
-        title: 'CABA / NECINA Medical Device Symposium (SIG)',
-        title_zh: 'CABA / NECINA 医疗器械与前沿生物技术研讨会 (SIG)',
-        description: 'Joint symposium with the Chinese American Biomedical Association spotlighting medtech breakthroughs, FDA regulations, and diagnostic innovations.'
-      },
-      {
-        title: 'Leadership Career Development Conference (CLD)',
-        title_zh: '职场与领导力进阶大会 (CLD)',
-        description: 'Focusing on executive presence, climbing the corporate ladder, engineering-to-management transitions, and tech executive coaching.'
-      },
-      {
-        title: 'Internet of Things Conference (SIG)',
-        title_zh: '物联网与边缘智能大会 (SIG)',
-        description: 'Smart devices, industrial robotics, embedded microcontrollers, and real-world deployment of edge intelligence in New England.'
-      },
-      {
-        title: 'YES Final Competition (YES)',
-        title_zh: 'YES 青年创业总决赛 (YES Final Competition)',
-        description: 'The culminating showcase where the region’s brightest high school teams pitch their business models to venture capital judges for cash awards.'
-      },
-      {
-        title: 'NIC-NEW 5.0 Business Competition & Demo Day (NIC)',
-        title_zh: 'NIC-NEW 创新挑战总决选与投资人 Demo Day',
-        description: 'High-stakes accelerator pitch showcase where vetted tech startups present to angel syndicates, institutional VCs, and corporate acquirers.'
+        title: 'NECINA IoT & Intelligent Devices Group',
+        title_zh: 'NECINA 物联网与智能硬件小组',
+        description: 'Led by John Zhuang, Nancy Li, and Brandon Chen. Focuses on intelligent devices, industrial automation, and commercial edge systems.'
       }
     ],
     applicationInfo: {
-      status: 'Annual Schedule Announced Seasonally',
-      status_zh: '各季度峰会日程定期发布',
-      contactEmail: 'conference@necina.org'
+      status: 'Open to All Tech Enthusiasts and Engineers',
+      status_zh: '面向全体技术从业者与工程师开放',
+      contactEmail: 'sig@necina.org'
     }
   },
 
@@ -411,7 +366,7 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
     slug: 'innovation-abc-platform',
     name: 'Innovation ABC Platform',
     name_zh: 'Innovation ABC Platform (ABC-NEW 5.0 创新加速平台)',
-    shortName: 'NEW',
+    shortName: 'ABC',
     category: 'innovation',
     categoryLabel: 'Venture Accelerator',
     categoryLabel_zh: '创业加速器',
@@ -574,78 +529,9 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
     ]
   },
 
-  // 5. Innovation SIG Groups
+  // 5. Entrepreneur NIC Challenge
   {
     id: 5,
-    slug: 'innovation-sig-groups',
-    name: 'Innovation SIG Groups',
-    name_zh: 'Innovation SIG Groups (前沿技术兴趣组)',
-    shortName: 'SIG',
-    category: 'innovation',
-    categoryLabel: 'Technical Special Interest Groups',
-    categoryLabel_zh: '专业前沿技术组',
-    sourceUrl: 'https://necina.org/content/sig',
-    tagline: 'Deep Intelligence, Mobile Solutions, and IoT Networks Led by Domain Authorities',
-    tagline_zh: '汇聚数百名顶尖工程师与科学家，深耕深度智能、移动互联与物联网硬件',
-    intro: 'NECINA’s Special Interest Groups (SIG) unite hundreds of savvy experts, engineering leaders, and students in specialized technical domains.',
-    intro_zh: 'NECINA 专业前沿兴趣组（SIG）汇聚数百位资深技术专家、工程架构师与学者，通过双周前沿技术研讨、代码精读沙龙与实操 Hackathon 推动技术进阶。',
-    overview: [
-      'NECINA Special Interest Groups provide dedicated peer platforms where engineers, AI practitioners, researchers, and hobbyists collaborate on bleeding-edge technologies.',
-      'Current active divisions include the Deep Intelligence Group (DIG: AI & Deep Learning, led by Victor Cao), the NECINA Mobile Group (led by Lin Song and Geoff Xiao), and the NECINA IoT Group (led by John Zhuang, Nancy Li, and Brandon Chen).',
-      'Activities feature bi-weekly technical paper breakdowns, architecture teardowns, hands-on LLM hack days, and joint events with MIT, Harvard, and industry leaders.'
-    ],
-    overview_zh: [
-      'NECINA 专业技术兴趣组为工程师、AI 从业者、高校学者与技术极客提供了专注于垂直细分技术的高端同行交流圈。',
-      '目前旗下设有三大活跃专业分舵：深度智能小组（DIG：专注于 AI 与深度学习，由曹江山领衔）、移动互联小组（由宋林与肖建峰领衔）及物联网硬件小组（由庄辉壮、李楠与陈斌领衔）。',
-      '活动包括双周顶级学术论文精读、开源微服务架构拆解、大模型动手营，以及与哈佛、MIT 学者的定期技术沙龙。'
-    ],
-    heroImage: '/necina_boston_hub.jpg',
-    statusBadge: 'Bi-Weekly Tech Salons Active',
-    statusBadge_zh: '双周前沿极客沙龙活跃开展',
-    established: '2016',
-    audience: 'Software engineers, AI researchers, data scientists, and hardware developers',
-    audience_zh: '软件架构师、AI 研究员、数据科学家与智能硬件极客',
-    highlights: [
-      'NECINA DIG (Deep Intelligence Group): Led by Victor Cao. Hundreds of savvy experts and students in AI, Deep Learning, and GenAI workflows',
-      'NECINA Mobile Group: Led by Lin Song & Geoff Xiao, focusing on mobile solutions, cross-platform apps, and ubiquitous user computing',
-      'NECINA IoT Group: Led by Analog Devices / Huawei veteran John Zhuang, Verizon executive Nancy Li, and Soteria Networks CEO Brandon Chen',
-      'Exploration of billions of connected devices, edge computing, smart industrial sensors, and real-world value-add deployment',
-      'Hands-on hackathons, technical demonstrations, code walkthroughs, and executive networking'
-    ],
-    highlights_zh: [
-      '深度智能小组 (DIG)：由曹江山（Victor Cao）领衔，数百位 AI 与深度学习专家、工程师及高校学子共同探讨最新算法与生成式大模型应用',
-      '移动互联小组：由宋林（Lin Song）与肖建峰（Geoff Xiao）领衔，专注跨平台移动终端方案、微前端交互及影响亿万用户日常生活的移动科技',
-      '物联网小组 (IoT Group)：由 Analog Devices 与华为资深专家庄辉壮（John Zhuang）、Verizon 高管李楠（Nancy Li）及 Soteria Networks CEO 陈斌（Brandon Chen）领衔',
-      '立足新英格兰雄厚产业基础，深度布局千亿级智能物联网硬件生态、边缘智能终端与工业级部署落地',
-      '定期组织线下动手黑客松、架构复盘研讨会、前沿代码走查与行业技术酒会'
-    ],
-    modules: [
-      {
-        title: 'NECINA DIG (Deep Intelligence Group)',
-        title_zh: 'NECINA 深度智能前沿小组 (DIG)',
-        description: 'Led by Victor Cao. Made of hundreds of savvy experts, professionals, and students in AI, LLMs, computer vision, and neural reasoning.'
-      },
-      {
-        title: 'NECINA Mobile Solutions Group',
-        title_zh: 'NECINA 移动互联与跨端应用小组',
-        description: 'Led by Lin Song and Geoff Xiao. Focuses on mobile architectures, progressive web technologies, and ubiquitous consumer applications.'
-      },
-      {
-        title: 'NECINA IoT & Intelligent Devices Group',
-        title_zh: 'NECINA 物联网与智能硬件小组',
-        description: 'Led by John Zhuang, Nancy Li, and Brandon Chen. Focuses on intelligent devices, industrial automation, and commercial edge systems.'
-      }
-    ],
-    applicationInfo: {
-      status: 'Open to All Tech Enthusiasts and Engineers',
-      status_zh: '面向全体技术从业者与工程师开放',
-      contactEmail: 'sig@necina.org'
-    }
-  },
-
-  // 6. Entrepreneur NIC Challenge
-  {
-    id: 6,
     slug: 'entrepreneur-nic-challenge',
     name: 'Entrepreneur NIC Challenge',
     name_zh: 'Entrepreneur NIC Challenge (NECINA 创新挑战赛)',
@@ -718,6 +604,98 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
       externalPortalUrl: 'http://www.necinaic.com',
       externalPortalText: 'VISIT WWW.NECINAIC.COM',
       contactEmail: 'nic@necina.org'
+    }
+  },
+
+  // 6. Innovation NTC Conference
+  {
+    id: 6,
+    slug: 'innovation-ntc-conference',
+    name: 'Innovation NTC Conference',
+    name_zh: 'Innovation NTC Conference (NTC 年度科技峰会)',
+    shortName: 'NTC',
+    category: 'innovation',
+    categoryLabel: 'Flagship Conferences',
+    categoryLabel_zh: '旗舰行业盛会',
+    sourceUrl: 'https://necina.org/content/conferences',
+    tagline: 'NECINA Premier Technology Conferences & High-Impact Domain Summits',
+    tagline_zh: '汇聚前沿科技变革与华人商业领袖的旗舰盛典与垂直峰会',
+    intro: 'Since 1996, NECINA’s flagship annual conference (NTC) and thematic summits have brought together thousands of innovators, corporate executives, and researchers.',
+    intro_zh: '自 1996 年以来，NECINA 年度科技峰会（NTC）及系列垂直前沿专题大会，已成为新英格兰地区连接学术界、工业界与创新投资圈的标志性高端交流高地。',
+    overview: [
+      'The Innovation NTC Conference serves as the crown jewel of NECINA’s annual calendar, featuring globally renowned keynote speakers, thought-provoking panel discussions, and high-impact innovation showcases.',
+      'Complementing the annual flagship conference, NECINA hosts eight specialized conference tracks throughout the calendar year, focusing on Artificial Intelligence, China-US cross-border innovation, medical devices, IoT, and leadership career growth.',
+      'Attendees include Fortune 500 technology leaders, university research fellows from Harvard, MIT, and Boston University, promising startup founders, and angel investors.'
+    ],
+    overview_zh: [
+      'NTC 年度科技峰会是 NECINA 全年活动日历中的重中之重，特邀享誉全球的主旨演讲嘉宾、高规格闭门圆桌论坛及前沿技术成果展示。',
+      '除年度旗舰大会外，NECINA 贯穿全年定期组织八大系列专题大会，涵盖人工智能、中美科技合作、医疗器械与生命科学、物联网以及职场高管成长。',
+      '参会者涵盖世界 500 强科技公司高管、来自哈佛、MIT、波士顿大学的顶尖学者、极具成长潜力的初创企业创始人与天使投资机构。'
+    ],
+    heroImage: '/necina_tech_workshop.jpg',
+    statusBadge: 'Annual Conference & Symposia Series',
+    statusBadge_zh: '年度大会与专题研讨会系列',
+    established: '1996',
+    audience: 'Technology professionals, engineering leaders, entrepreneurs, and researchers',
+    audience_zh: '科技专业人士、工程总监、创业团队与高校科研人员',
+    highlights: [
+      'Keynotes by world-renowned scientists, Turing / Nobel laureates, and tech founders',
+      'Panel discussions tackling disruptive technological shifts and market trends',
+      'Innovation showcase featuring emerging startup prototypes and commercial demos',
+      'Executive networking banquets connecting over 5,000 community professionals'
+    ],
+    highlights_zh: [
+      '享誉全球的顶级科学家、图灵奖/诺奖得主与科技独角兽创始人主旨演讲',
+      '深度剖析前沿技术变革、宏观资本走势与行业破局痛点的专题论坛',
+      '汇聚早期高科技初创企业原型、专利成果与商业 Demo 的创新展区',
+      '连接 5,000+ 专业会员与跨国企业高管的闭门交流晚宴与对接平台'
+    ],
+    modules: [
+      {
+        title: 'NECINA Annual Conference (NTC)',
+        title_zh: 'NECINA 年度科技盛典 (NTC)',
+        description: 'The premier annual gathering bringing together the entire New England high-tech ecosystem to celebrate innovation, visionary leadership, and community impact.'
+      },
+      {
+        title: 'Artificial Intelligence and Deep Learning Conference (ABC)',
+        title_zh: '人工智能与深度学习大会 (ABC)',
+        description: 'Dedicated to generative AI, large language models, autonomous agents, computer vision, and neural compute infrastructure.'
+      },
+      {
+        title: 'China Conference (SIG)',
+        title_zh: '中国与全球科技合作峰会 (SIG)',
+        description: 'Exploring cross-border market synergies, international venture capital trends, and bilateral technological advancements.'
+      },
+      {
+        title: 'CABA / NECINA Medical Device Symposium (SIG)',
+        title_zh: 'CABA / NECINA 医疗器械与前沿生物技术研讨会 (SIG)',
+        description: 'Joint symposium with the Chinese American Biomedical Association spotlighting medtech breakthroughs, FDA regulations, and diagnostic innovations.'
+      },
+      {
+        title: 'Leadership Career Development Conference (CLD)',
+        title_zh: '职场与领导力进阶大会 (CLD)',
+        description: 'Focusing on executive presence, climbing the corporate ladder, engineering-to-management transitions, and tech executive coaching.'
+      },
+      {
+        title: 'Internet of Things Conference (SIG)',
+        title_zh: '物联网与边缘智能大会 (SIG)',
+        description: 'Smart devices, industrial robotics, embedded microcontrollers, and real-world deployment of edge intelligence in New England.'
+      },
+      {
+        title: 'YES Final Competition (YES)',
+        title_zh: 'YES 青年创业总决赛 (YES Final Competition)',
+        description: 'The culminating showcase where the region’s brightest high school teams pitch their business models to venture capital judges for cash awards.'
+      },
+      {
+        title: 'NIC-NEW 5.0 Business Competition & Demo Day (NIC)',
+        title_zh: 'NIC-NEW 创新挑战总决选与投资人 Demo Day',
+        description: 'High-stakes accelerator pitch showcase where vetted tech startups present to angel syndicates, institutional VCs, and corporate acquirers.'
+      }
+    ],
+    applicationInfo: {
+      status: 'Annual Schedule Announced Seasonally',
+      status_zh: '各季度峰会日程定期发布',
+      contactEmail: 'conference@necina.org'
     }
   },
 
@@ -823,95 +801,117 @@ export const OFFICIAL_PROGRAMS: OfficialProgram[] = [
     }
   },
 
-  // 8. NECINA Clubs
+  // 8. Youth Impact Program
   {
     id: 8,
-    slug: 'necina-clubs',
-    name: 'NECINA Clubs',
-    name_zh: 'NECINA Clubs (eCLUB / iCLUB / WeCLUB 俱乐部矩阵)',
-    shortName: 'E-Club',
-    category: 'community',
-    categoryLabel: 'Executive & Peer Communities',
-    categoryLabel_zh: '高管与同行社群',
-    sourceUrl: 'https://necina.org/content/eclub-iclub-weclub',
-    tagline: 'eCLUB + iCLUB + WeCLUB — A Blended Ecosystem for Founders, Innovators & Community',
-    tagline_zh: '三维融合的互助俱乐部矩阵：凝聚科技创始人、极客工程师与社区菁英',
-    intro: 'NECINA’s club matrix provides vetted, member-only peer environments for company founders, technology builders, and community advocates to collaborate and scale.',
-    intro_zh: 'NECINA 俱乐部矩阵构建了受邀准入的高端同行交流圈，为科技企业创始人、前沿技术开发者及社区骨干提供深度互助、投资对接与资源共享平台。',
+    slug: 'youth-impact-program',
+    name: 'Youth Impact Program',
+    name_zh: 'Youth Impact Program (青年影响力计划)',
+    shortName: 'YIP',
+    category: 'youth',
+    categoryLabel: 'Youth & Leadership',
+    categoryLabel_zh: '青年与领导力',
+    sourceUrl: 'https://necina.org/content/youth-impact-program',
+    tagline: 'Ready to Shape the Next Generation of Leaders?',
+    tagline_zh: '准备好塑造下一代青年领袖了吗？',
+    intro: 'A premier initiative empowering high school and college students to build real-world venture experience, guided by elite collegiate mentors and seasoned industry executives.',
+    intro_zh: '专为高中生和大学生打造的标杆性赋能计划，由顶尖名校大学生导师和资深行业高管带队，深入体验真实商业与社会影响力创业。',
     overview: [
-      'The NECINA Entrepreneur Club (eCLUB), blended in 2023 with Innovation iCLUB and Community WeCLUB, is a premier peer community of technology company founders, owners, and C-level executives.',
-      'The mission is to help member companies accelerate growth by connecting members to senior serial founders, venture funding sources, professional service firms, and cross-border commercial opportunities.',
-      'Members maintain active connections through informal face-to-face meetups, dedicated WeChat and LinkedIn executive roundtables, speaker consultations, and commercial showcase exhibitions at NECINA conferences.'
+      'Whether you are a student looking to build real-world venture experience or an industry professional looking to mentor top-tier young talent, we want you involved.',
+      'The Youth Impact Program bridges generational divides by pairing high school participants with high-achieving college mentors from Harvard, Columbia, Duke Law, and Babson, providing hands-on project-based venture training.',
+      'Participants develop leadership, team collaboration, public pitching, and entrepreneurial execution while tackling meaningful community and technological challenges.'
     ],
     overview_zh: [
-      'NECINA 企业家俱乐部（eCLUB）于 2023 年全面融合创新俱乐部（iCLUB）与社区俱乐部（WeCLUB），是专为科技公司创始人、企业法人及 C 级核心高管打造的高端商业互助社群。',
-      '俱乐部的使命是通过连接更具经验的成功连环创业先辈、一级创投资本、专业法律与财税机构以及亚洲跨境商业伙伴，为成员企业赋能解惑、拓展广阔商机。',
-      '成员通过线下闭门私享聚会、专属微信与 LinkedIn 高管圈、垂直主题专家问诊以及在 NECINA 大型科技峰会上的企业商业展位，长期保持紧密互助与商业协同。'
+      '无论您是渴望积累实操创业经验的学生，还是希望辅导顶尖年轻人才的行业专业人士，我们都真诚欢迎您的加入。',
+      '青年影响力计划通过跨代际传承体系，将高中学员与来自哈佛、哥伦比亚大学、杜克大学法学院和百森商学院的优秀大学导师结对，开展基于项目的实战创业训练。',
+      '学员将在解决具有现实意义的社区及科技挑战过程中，全面提升领导力、团队协作、公众路演和商业执行力。'
     ],
-    heroImage: '/programs/eclub_showcase.jpg',
-    statusBadge: 'Member-Only Executive Network Active',
-    statusBadge_zh: '会员制高管专属圈活跃运作中',
-    established: '2011',
-    audience: 'Technology company owners, founders, C-level executives, and active NECINA members',
-    audience_zh: '科技企业法人、初创创始人、C 级高管及 NECINA 正式会员',
+    heroImage: '/programs/youth_impact_team.png',
+    statusBadge: 'Applications for Fall 2026 Open July 1st',
+    statusBadge_zh: '2026 年秋季批次申请将于 7 月 1 日开放',
+    established: '2024',
+    audience: 'High school students (grades 9-12) & college undergraduates',
+    audience_zh: '9-12 年级高中生及在校大学生',
     highlights: [
-      'Informal Member-Only Meetups: Face-to-face dinners and executive salons to share real metrics, pivots, and peer advisory',
-      'WeChat & LinkedIn Peer Circles: 24/7 confidential communication and real-time business opportunities exchange',
-      'Subject Matter Expert Sessions: Direct consultations with leading patent attorneys, corporate tax specialists, and VCs',
-      'Business Showcase at NECINA Events: Prominent exhibition space at annual conferences (over 15 member companies showcase annually)',
-      'Cross-Border Synergies: Establishing business connections and supply chain channels with Asian technology hubs'
+      'Direct pairing with Ivy League & top-tier college mentors',
+      'Hands-on venture creation and real-world project incubation',
+      'Guidance on college admissions, leadership portfolios, and career trajectory',
+      'Final project showcase presented to venture capitalists and corporate leaders'
     ],
     highlights_zh: [
-      '受邀制闭门私享沙龙：定期举办面对面晚宴与高管交流会，坦诚分享经营数据、转型阵痛与实战决策建议',
-      '微信与 LinkedIn 高管同行圈：全天候高效连接，实时交流行业情报、投融资线索与海内外合作商机',
-      '行业专家面对面咨询会：直面顶级知识产权律师、跨国财税专家与知名投资人进行一对一闭门问诊',
-      'NECINA 旗舰峰会商业展台特权：在每年数千人参与的年会与科技大会设立专属展台（每年 15+ 会员企业参展推广）',
-      '跨国业务与全球供应链整合：架设与亚洲及全球主要科技高地之间的商业合作、技术转让与渠道拓展桥梁'
+      '常春藤名校及顶尖大学导师一对一专项辅导',
+      '实战型社会影响力创业项目孵化与动手实践',
+      '名校升学背景打造、领导力成果集建设及职业长远规划',
+      '面向知名风险投资人与企业高管的年度结业项目路演'
     ],
-    activities: [
+    mentors: [
       {
-        title: 'Informal Member-Only Meetups',
-        title_zh: '非正式闭门会员见面沙龙',
-        description: 'Held in relaxed environments to build authentic trust, share operational successes, discuss hiring dilemmas, and seek peer executive advice.',
-        description_zh: '在轻松真诚的氛围中面对面深入沟通，建立深度信任，分享经营心得、高管招聘困境与实战避坑经验。',
-        image: '/programs/eclub_meetup.jpg'
+        name: 'Sophie Xu',
+        role: 'Program Director',
+        role_zh: '项目总监',
+        company: 'NECINA Leadership',
+        linkedin: 'https://www.linkedin.com/in/sophiexuu/'
       },
       {
-        title: 'LinkedIn & WeChat Peer Discussions',
-        title_zh: '高管微信与 LinkedIn 专属社群',
-        description: 'Keeping club founders tightly connected day to day with curated market intel, referral requests, and investment intros.',
-        description_zh: '保持俱乐部创始人社群全天候高频互动，快速传递前沿市场动态、高管人才引荐与天使投资对接。',
-        image: '/programs/eclub_social.jpg'
+        name: 'Rory Li',
+        role: 'College Mentor — Incoming JD Student',
+        role_zh: '大学导师 —— 杜克大学法学院法学博士生',
+        company: 'Duke Law School'
       },
       {
-        title: 'Speaker & Subject Matter Consultations',
-        title_zh: '垂直领域专家专题咨询与研讨',
-        description: 'Dedicated sessions where member founders consult with corporate M&A bankers, international patent attorneys, and growth marketers.',
-        description_zh: '定期举办专业问诊会，特邀企业兼并重组投资银行家、国际专利律所高级合伙人与增长专家现场解题。',
-        image: '/programs/eclub_expert.jpg'
+        name: 'Grade Luo',
+        role: 'College Mentor — Math + Neuro',
+        role_zh: '大学导师 —— 数学与神经科学专业',
+        company: 'Harvard University'
       },
       {
-        title: 'Business Showcase at NECINA Conferences',
-        title_zh: 'NECINA 盛典企业商业高光展台',
-        description: 'Member startups promote their products, hardware devices, and enterprise SaaS solutions directly to thousands of conference attendees.',
-        description_zh: '会员企业在每届盛典上直接向数千名现场参会高管、技术采购决策者与投资机构展示前沿技术与产品方案。',
-        image: '/programs/eclub_showcase.jpg'
+        name: 'Sophia Hann',
+        role: 'College Mentor',
+        role_zh: '大学导师',
+        company: 'Columbia University'
+      },
+      {
+        name: 'Annie Chan',
+        role: 'College Mentor',
+        role_zh: '大学导师',
+        company: 'Babson College'
+      },
+      {
+        name: 'Michelle Liu',
+        role: 'High School Officer',
+        role_zh: '高中部干事',
+        company: 'High School Junior'
+      },
+      {
+        name: 'Ivan Chan',
+        role: 'High School Officer',
+        role_zh: '高中部干事',
+        company: 'High School Junior'
+      },
+      {
+        name: 'Lucas Cao',
+        role: 'High School Officer',
+        role_zh: '高中部干事',
+        company: 'High School Sophomore'
+      },
+      {
+        name: 'Austin Xu',
+        role: 'High School Officer',
+        role_zh: '高中部干事',
+        company: 'High School Freshman'
       }
     ],
     applicationInfo: {
-      status: 'Open to Active NECINA Members who are Founders or C-Level Tech Executives',
-      status_zh: '面向科技公司创始人、企业主与 C 级高管会员开放申请',
-      applyUrl: 'http://bit.ly/1muKWJc',
-      applyText: 'SUBMIT E-CLUB APPLICATION',
-      applyText_zh: '提交 eCLUB 会员申请表',
-      contactEmail: 'eclub@necina.org'
+      status: 'Applications for the Fall 2026, open July 1st.',
+      status_zh: '2026 年秋季批次申请将于 7 月 1 日正式开放。',
+      contactEmail: 'info@necina.org'
     },
     galleryImages: [
       {
-        src: '/programs/eclub_members_logos.jpg',
-        alt: 'NECINA E-Club Member Companies Matrix',
-        caption: 'Partial Graphic of Vetted Technology Member Companies in NECINA E-Club',
-        caption_zh: 'NECINA eCLUB 部分会员科技企业品牌墙'
+        src: '/programs/youth_impact_team.png',
+        alt: 'The Changemakers of Youth Impact Program',
+        caption: 'The Changemakers — Youth Impact Program Leadership Team',
+        caption_zh: '青年影响力计划领导团队合影（The Changemakers）'
       }
     ]
   },

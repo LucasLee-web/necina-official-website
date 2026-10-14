@@ -14,11 +14,24 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
   const isZh = locale === 'zh';
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState<'about' | 'leadership' | 'history' | 'all'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'board' | 'team' | 'history' | 'all'>('about');
 
   useEffect(() => {
-    if (location.hash === '#board-members' || location.hash === '#leadership' || location.hash === '#leadership-teams') {
-      setActiveTab('leadership');
+    const searchParams = new URLSearchParams(location.search);
+    const tabParam = searchParams.get('tab');
+    if (tabParam === 'board' || tabParam === 'team' || tabParam === 'about' || tabParam === 'history' || tabParam === 'all') {
+      setActiveTab(tabParam);
+      return;
+    }
+
+    if (location.hash === '#board' || location.hash === '#board-members') {
+      setActiveTab('board');
+      const elem = document.querySelector(location.hash);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (location.hash === '#team' || location.hash === '#leadership' || location.hash === '#leadership-teams') {
+      setActiveTab('team');
       const elem = document.querySelector(location.hash);
       if (elem) {
         elem.scrollIntoView({ behavior: 'smooth' });
@@ -26,16 +39,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
     } else if (location.hash === '#history' || location.hash === '#milestones') {
       setActiveTab('history');
     }
-  }, [location.hash]);
+  }, [location.hash, location.search]);
 
   const t = {
     badge: isZh ? '关于我们与组织架构' : 'About Us & Leadership',
-    title: isZh ? '关于 NECINA 与领导架构' : 'About NECINA & Leadership',
+    title: isZh ? '关于 NECINA 与组织架构' : 'About NECINA & Leadership',
     subtitle: isZh
       ? '全方位了解创立于 1996 年的大波士顿顶尖非营利高科技专业协会、官方核心项目矩阵，以及董事会治理与运营团队。'
-      : 'Comprehensive organizational profile and governance directory. Discover our founding legacy since 1996, the three mission pillars, program matrix, and the official Board of Directors.',
+      : 'Comprehensive organizational profile and governance directory. Discover our founding legacy since 1996, the three mission pillars, program matrix, and the official Board of Directors and Leadership Teams.',
     tabAbout: isZh ? '关于 NECINA' : 'About NECINA',
-    tabLeadership: isZh ? 'NECINA 领导团队与董事会' : 'NECINA Leadership',
+    tabBoard: isZh ? 'NECINA董事会' : 'NECINA Board',
+    tabTeam: isZh ? 'NECINA团队' : 'NECINA Team',
     tabHistory: isZh ? '三十载历程与里程碑' : '30-Year History & Milestones',
     tabAll: isZh ? '浏览全部内容' : 'View All',
   };
@@ -78,15 +92,28 @@ export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
 
               <button
                 type="button"
-                onClick={() => setActiveTab('leadership')}
+                onClick={() => setActiveTab('board')}
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
-                  activeTab === 'leadership'
+                  activeTab === 'board'
                     ? 'bg-primary text-white shadow-lg shadow-primary/25'
                     : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
                 }`}
               >
                 <Shield className="w-4 h-4" />
-                <span>{t.tabLeadership}</span>
+                <span>{t.tabBoard}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveTab('team')}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                  activeTab === 'team'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                    : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
+                }`}
+              >
+                <Users className="w-4 h-4" />
+                <span>{t.tabTeam}</span>
               </button>
 
               <button
@@ -119,7 +146,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
         </div>
       </section>
 
-      {/* 2. SOURCE 1: ABOUT NECINA SECTION */}
+      {/* 2. ABOUT NECINA SECTION */}
       {(activeTab === 'about' || activeTab === 'all') && (
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,26 +155,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ locale }) => {
         </section>
       )}
 
-      {/* 3. SOURCE 2: NECINA LEADERSHIP SECTION (Board Members in strict order 1 to 11 + 2024-2025 Team) */}
-      {(activeTab === 'leadership' || activeTab === 'all') && (
-        <div className="border-t border-white/5">
-          {/* Sub-jump buttons for convenience */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 flex flex-wrap gap-2">
-            <a
-              href="#board-members"
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-300 hover:text-white transition-colors"
-            >
-              ↓ {isZh ? '直达：董事会成员' : 'Jump to: Board Members'}
-            </a>
-            <a
-              href="#leadership-teams"
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-300 hover:text-white transition-colors"
-            >
-              ↓ {isZh ? '直达：2024-2025 执行与运营团队' : 'Jump to: 2024-2025 Teams'}
-            </a>
-          </div>
-
+      {/* 3. NECINA BOARD SECTION (隶属于标签: NECINA董事会) */}
+      {(activeTab === 'board' || activeTab === 'all') && (
+        <div className={activeTab === 'all' ? 'border-t border-white/5' : ''}>
           <BoardMembersSection locale={locale} />
+        </div>
+      )}
+
+      {/* 4. NECINA TEAM SECTION (隶属于标签: NECINA团队) */}
+      {(activeTab === 'team' || activeTab === 'all') && (
+        <div className={activeTab === 'all' ? 'border-t border-white/5' : ''}>
           <LeadershipTeamSection locale={locale} />
         </div>
       )}

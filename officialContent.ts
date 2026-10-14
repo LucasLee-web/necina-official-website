@@ -43,10 +43,15 @@ export interface ProgramDetail {
 
 export interface OfficialEvent {
   id: string;
+  slug: string;
   title: string;
   title_zh: string;
+  subtitle?: string;
+  subtitle_zh?: string;
   date: string;
   date_zh: string;
+  publishDate?: string;
+  publishDate_zh?: string;
   venue: string;
   venue_zh: string;
   category: 'Flagship' | 'AI & Tech' | 'Youth' | 'Entrepreneurship' | 'Community';
@@ -57,7 +62,25 @@ export interface OfficialEvent {
   speakers?: string[];
   speakers_zh?: string[];
   registrationUrl?: string;
+  registrationText?: string;
+  registrationText_zh?: string;
   image: string;
+  posterImage?: string;
+  photoImage?: string;
+  organizer?: string;
+  organizer_zh?: string;
+  coOrganizers?: string[];
+  coOrganizers_zh?: string[];
+  targetAudience?: string;
+  targetAudience_zh?: string;
+  sourceUrl?: string;
+  sourceName?: string;
+  sourceName_zh?: string;
+  highlights?: string[];
+  highlights_zh?: string[];
+  curriculum?: { title: string; title_zh: string; desc: string; desc_zh: string }[];
+  paragraphs?: string[];
+  paragraphs_zh?: string[];
 }
 
 export interface MediaItem {
@@ -466,7 +489,104 @@ export const PROGRAMS_LIST: ProgramDetail[] = [
 
 export const EVENTS_LIST: OfficialEvent[] = [
   {
+    id: 'yes-kickoff-launch',
+    slug: 'yes-youth-entrepreneurship-launch',
+    title: 'NECINA-YES Youth Entrepreneurship Service Program Officially Launches',
+    title_zh: 'NECINA-YES青年创业服务项目正式启动！',
+    subtitle: 'AI-Driven Youth Entrepreneurship Leadership Program — Accelerating Your Vision from Ideation to Real-World Impact',
+    subtitle_zh: 'AI驱动的青年创业领袖计划，助力你的创意从想法到影响力！',
+    date: 'August 9, 2025 – May 16, 2026 (Annual Cycle)',
+    date_zh: '2025年8月9日 – 2026年5月16日（年度完整周期）',
+    publishDate: 'Official WeChat Announcement',
+    publishDate_zh: '官方微信推文发布',
+    venue: 'Lexington Community Center (39 Marrett Rd, Lexington, MA 02421) & MIT Stata Center',
+    venue_zh: '莱克星顿社区中心 (39 Marrett Rd, Lexington, MA 02421) 及麻省理工学院 (MIT) Stata 创新中心',
+    category: 'Youth',
+    category_zh: '青年创业',
+    status: 'past',
+    description: 'NECINA officially launches the Youth Entrepreneurship Service (YES) program. An 8-week intensive entrepreneurship and leadership bootcamp tailored for high school students (grades 9-12), integrating AI innovation tools, project-based venture creation, executive mentorship, and a capstone pitch competition with cash prizes and corporate internship pathways.',
+    description_zh: '纽英伦中华资讯网络协会（NECINA）自豪宣布 YES 青年创业服务项目正式开启报名！专为 9–12 年级高中生量身定制为期 8 周的高强度创业与领导力训练营，深度融合 AI 前沿工具赋能、PBL 商业项目实战、顶尖高管导师闭门一对一指导与全场总决赛路演，并设立丰厚奖金与企业实习绿色通道。',
+    speakers: ['Ben Tao (Head of Corporate Strategy, Rockwell Automation)', 'NECINA YES Mentorship Faculty', 'Alumni Startup Founders & Venture Judges'],
+    speakers_zh: ['陶东斌 (罗克韦尔自动化企业战略高级总监)', 'NECINA YES 导师委员会专家团队', 'YES 往届杰出青年创始人与创投评委'],
+    registrationUrl: 'https://tinyurl.com/YES-19-Registration',
+    registrationText: 'View Registration & Application Form',
+    registrationText_zh: '查看报名与选拔表单',
+    image: '/yes_youth_poster.jpg',
+    posterImage: '/yes_youth_poster.jpg',
+    photoImage: '/yes_group_photo.jpg',
+    organizer: 'New England Chinese Information and Networking Association (NECINA)',
+    organizer_zh: '纽英伦中华资讯网络协会 (NECINA)',
+    coOrganizers: ['NECINA Youth Program Team', 'YES Mentorship Committee', 'Boston Tsinghua Alumni Association', 'Boston Chinese Network'],
+    coOrganizers_zh: ['NECINA 青年项目团队', 'YES 导师委员会', '波士顿清华校友会', '波士顿中文网'],
+    targetAudience: 'Passionate high school students (grades 9–12) and aspiring youth innovators',
+    targetAudience_zh: '充满激情、对科技创新、商业设计与团队领导力抱有热忱的 9–12 年级高中生',
+    sourceUrl: 'https://mp.weixin.qq.com/s/rmeEuATCJHTAKI1H1hEn6A',
+    sourceName: 'NECINA Official WeChat Announcement',
+    sourceName_zh: 'NECINA 微信公众号官方发布推文',
+    highlights: [
+      'AI-Driven Entrepreneurship: Learn to incorporate artificial intelligence tools into real-world business ideation, market validation, and prototyping.',
+      'Project-Based Learning (PBL): Work in interscholastic teams to build verified business models and functioning prototypes from scratch.',
+      'Executive Mentorship: Direct 1-on-1 coaching with tech executives, serial entrepreneurs, and angel investors from Greater Boston and Silicon Valley.',
+      'Capstone Pitch Competition: Present before distinguished venture capital judges at MIT for cash awards and corporate internship opportunities.'
+    ],
+    highlights_zh: [
+      'AI 驱动的前沿创业：系统学习利用人工智能工具加速市场洞察、产品原型开发与商业模式验证。',
+      'PBL 项目式实战：学员组建多元跨校战队，从零打磨出具备商业可行性与社会影响力的真实创业方案。',
+      '资深高管一对一导师：由来自罗克韦尔自动化等知名科技企业的创业导师进行闭门答辩复盘与深度辅导。',
+      '年度全场总决赛路演：在麻省理工学院 (MIT) 舞台面向风投评委展示成果，角逐现金大奖与企业实习通道。'
+    ],
+    curriculum: [
+      {
+        title: 'Session 1: Entrepreneurship 101, Ideation & AI Discovery',
+        title_zh: '第一模块：创业概论、痛点挖掘与 AI 辅助市场洞察',
+        desc: 'Framing problems, value propositions, and using modern AI tooling to conduct automated market and competitor research.',
+        desc_zh: '明确真实痛点与价值主张，掌握利用大模型与 AI 工具开展自动化市场调研与竞品分析的核心方法。'
+      },
+      {
+        title: 'Session 2: Product Prototyping & Customer Discovery Validation',
+        title_zh: '第二模块：产品原型设计与目标客群验证',
+        desc: 'Building rapid MVPs, conducting structured user interviews, and iterative wireframing.',
+        desc_zh: '快速构建最小可行性产品（MVP），开展结构化用户访谈并进行敏捷迭代设计。'
+      },
+      {
+        title: 'Session 3: Corporate Structure, IP Protection & Operations',
+        title_zh: '第三模块：企业架构设计、知识产权保护与运营规划',
+        desc: 'Foundational legal structures, patent and trademark fundamentals, and equity distribution models for early startups.',
+        desc_zh: '初创公司法律实体类型、专利与商标知识产权保护常识及核心合伙人股权分配机制。'
+      },
+      {
+        title: 'Session 4: Financial Modeling, Unit Economics & Pricing',
+        title_zh: '第四模块：初创财务模型、单位经济效益与定价策略',
+        desc: 'Pricing strategies, startup runway budgeting, gross margins, and seed-round financial projections.',
+        desc_zh: '定价策略、初创成本预算、毛利率测算与种子轮融资财务模型实战演练。'
+      },
+      {
+        title: 'Session 5: Executive Mentor Teardowns & Dry-Run Reviews',
+        title_zh: '第五模块：导师闭门一对一辅导与模拟路演复盘',
+        desc: 'Intensive 1-on-1 feedback sessions with serial entrepreneurs and venture capital judges.',
+        desc_zh: '与连续创业者及风险投资评审进行闭门一对一打磨与高强度模拟答辩。'
+      },
+      {
+        title: 'Session 6: Capstone Business Plan Pitch Gala',
+        title_zh: '第六模块：YES 商业计划书全场总决赛路演',
+        desc: 'Live pitch showcase in front of industry judges, family, and peers with cash prize distribution.',
+        desc_zh: '面向资深行业评委、投资人与社区公众的线下盛大路演，评选优胜奖项并颁发丰厚奖金。'
+      }
+    ],
+    paragraphs: [
+      'This season, the New England Chinese Information and Networking Association (NECINA) proudly announces the official launch of the Youth Entrepreneurship Service (YES) program! If you are a passionate high school student in grades 9 through 12 who dreams of becoming a future founder and leader, join YES to build your dream.',
+      'Designed as an "AI-Driven Youth Entrepreneurship Leadership Program", YES accelerates young innovators from ideation to real-world commercial impact. Over an 8-week intensive bootcamp featuring Saturday workshops, participants combine artificial intelligence tools with structured business fundamentals, developing comprehensive business plans and working prototypes.',
+      'Backed by executive faculty mentors from Rockwell Automation, Silicon Valley, and the Greater Boston venture ecosystem, students learn to think, listen, and lead like founders. Top teams pitch their ventures before venture capital judges, winning substantial cash awards and corporate internship opportunities.'
+    ],
+    paragraphs_zh: [
+      '今年，纽英伦中华资讯网络协会（NECINA）青年创业服务（YES - Youth Entrepreneurship Service）项目正式开启报名！如果你是一名充满激情的高中生（9–12 年级），梦想成为未来的创业者与领导者，那就来参加由 NECINA 主办的 Youth Entrepreneurship Service (YES) 项目吧！',
+      '作为一项专为青年量身打造的“AI 驱动青年创业领袖计划”，本期项目助力学员将创意从想法转化为切实的影响力。为期 8 周的高强度训练营，将前沿人工智能应用与严谨的商业实践紧密结合，采用项目式实战学习（Project-Based Learning）模式，全方位赋能青少年的商业思维与领导才华。',
+      '在导师阵容方面，YES 项目汇聚了包括罗克韦尔自动化高管、硅谷与波士顿资深科技专家及往届杰出校友在内的导师团队。学员们将在真实项目中学会像创始人一样思考、倾听与协作。优秀团队更将获得现金奖励，并有机会斩获知名赞助企业的实战实习名额。'
+    ]
+  },
+  {
     id: '30th-gala',
+    slug: '30th-gala',
     title: 'NECINA 30th Anniversary Grand Ceremony & Gala',
     title_zh: 'NECINA 三十周年盛大庆典与科技峰会',
     date: 'June 13, 2026',
@@ -484,6 +604,7 @@ export const EVENTS_LIST: OfficialEvent[] = [
   },
   {
     id: 'ai-agent-2025',
+    slug: 'ai-agent-2025',
     title: 'NECINA AI Agent Tech Conference',
     title_zh: 'NECINA 智能体 (AI Agent) 前沿科技大会',
     date: 'December 13, 2025',
@@ -501,6 +622,7 @@ export const EVENTS_LIST: OfficialEvent[] = [
   },
   {
     id: 'yes-competition',
+    slug: 'yes-pitch-competition',
     title: 'YES 20th Anniversary Final Pitch Competition',
     title_zh: 'YES 青年创业大赛二十周年全场总决赛',
     date: 'May 16, 2026',
@@ -518,6 +640,7 @@ export const EVENTS_LIST: OfficialEvent[] = [
   },
   {
     id: 'eclub-female-leadership',
+    slug: 'eclub-female-leadership',
     title: 'Break Barriers, Build Bridges: Women in Tech & Leadership',
     title_zh: '突破壁垒，架设桥梁：科技与创业女性领导力论坛',
     date: 'March 28, 2026',
@@ -535,6 +658,7 @@ export const EVENTS_LIST: OfficialEvent[] = [
   },
   {
     id: 'biotech-ai-symposium',
+    slug: 'biotech-ai-symposium',
     title: 'Biologic AI & Drug Discovery Forum',
     title_zh: '生物 AI 与创新药物发现高峰论坛',
     date: 'October 18, 2025',
@@ -551,6 +675,10 @@ export const EVENTS_LIST: OfficialEvent[] = [
     image: '/necina_boston_hub.jpg'
   }
 ];
+
+export const getEventBySlug = (slug: string): OfficialEvent | undefined => {
+  return EVENTS_LIST.find((e) => e.slug === slug || e.id === slug);
+};
 
 export const PRESIDENTS_CHRONOLOGY = [
   { year: '1996', name: 'Wufu Chen', name_zh: '陈五福' },
@@ -582,13 +710,13 @@ export const PRESIDENTS_CHRONOLOGY = [
   { year: '2022', name: 'Scott Li', name_zh: '李思佳' },
   { year: '2023-2024', name: 'John Zhuang', name_zh: '庄辉壮' },
   { year: '2025-2026', name: 'Bing He', name_zh: '何 冰' },
-  { year: '2026-2027', name: 'Caroline Lu', name_zh: '卢妤婧' }
+  { year: '2026-2027', name: 'Caroline Lu', name_zh: '吕妤婧' }
 ];
 
 export const LEADERSHIP_ROSTER: Leader[] = [
   {
     name: 'Caroline Lu',
-    name_zh: '卢妤婧',
+    name_zh: '吕妤婧',
     role: 'NECINA President (2026 - 2027)',
     role_zh: '现任会长 (2026 - 2027)',
     bio: 'Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.',

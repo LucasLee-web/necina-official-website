@@ -363,7 +363,7 @@ export const BOARD_MEMBERS_DATA: BoardMember[] = [
     id: 'joan-ni',
     order: 4,
     name: 'Joan Ni',
-    name_zh: '倪 捷',
+    name_zh: '倪继红',
     title: 'President of Suzhou-Chem Inc.',
     title_zh: '苏州化学 (Suzhou-Chem Inc.) 总裁',
     distinction: 'Board Member',
@@ -374,15 +374,15 @@ export const BOARD_MEMBERS_DATA: BoardMember[] = [
       'Joan served as board member of Newton Chinese Language School and currently serves as the President of Boston Zhejiang University Alumni Association and as the Director of the American Zhu Kezhen Education foundation. Joan was NECINA’s General Manager and Vice President for 6 years.'
     ],
     bio_zh: [
-      '凭借深厚的化学工程专业背景，倪捷女士于 2001 年创立了极具影响力的进出口与分销企业，为北美食品、饮料及膳食补充剂行业提供专业服务。',
-      '倪捷曾任牛顿中文学校董事会董事，目前担任波士顿浙江大学校友会会长以及美国竺可桢教育基金会理事。她曾连续 6 年担任 NECINA 总经理（General Manager）与副总裁（Vice President）。'
+      '凭借深厚的化学工程专业背景，倪继红女士于 2001 年创立了极具影响力的进出口与分销企业，为北美食品、饮料及膳食补充剂行业提供专业服务。',
+      '倪继红曾任牛顿中文学校董事会董事，目前担任波士顿浙江大学校友会会长以及美国竺可桢教育基金会理事。她曾连续 6 年担任 NECINA 总经理（General Manager）与副总裁（Vice President）。'
     ]
   },
   {
     id: 'tony-ho',
     order: 5,
     name: 'Tony Ho',
-    name_zh: '何 彤',
+    name_zh: '贺通',
     title: 'Vice President, Business Development, Segway-Ninebot Group',
     title_zh: '九号公司 (Segway-Ninebot Group) 业务拓展副总裁',
     distinction: 'Board Member',
@@ -393,8 +393,8 @@ export const BOARD_MEMBERS_DATA: BoardMember[] = [
       'Tony was a serial entrepreneur and an advisor to a number of early stage technology companies. He was formerly board member and Chief Operating Officer for Fangjia.com, a home valuation website based on big data and vertical search technology. Prior to that he was VP of Product and Director of Business Development for Myvu/MicroOptical, as well as other roles in technology early stage companies. Tony also worked for Procter & Gamble as a Manager in a variety of functions. Tony attended Harvard Business School where he earned his MBA, the University of Toronto, where he earned a Engineering Degree (M.Sc.) in Robotics, and the University of Manitoba where he earned a B.Sc. Degree in Mechanical & Industrial Engineering. Tony was a long time NECINA alumni, and former VP before returning to China. He led the effort in successful launch of the first NECINA Business Plan Competition in 2005.'
     ],
     bio_zh: [
-      'Segway 是享誉全球的同名自平衡车发明者。该公司目前在上海证券交易所上市（证券代码：689009）。何彤先生统领 Segway 中长期业务增长机会开发，并与微出行和机器人产业生态中的核心领军企业建立战略合作伙伴关系。',
-      '何彤先生是一位连环创业家，并担任多家早期高科技公司的顾问。他曾担任基于大数据和垂直搜索技术的房产评估网站房价网（Fangjia.com）的董事会董事兼首席运营官。在此之前，他曾任 Myvu/MicroOptical 产品副总裁兼业务发展总监，并在多家早期科技企业历任核心职务。何先生还曾在宝洁公司（Procter & Gamble）担任多职能部门经理。何先生拥有哈佛商学院工商管理硕士（MBA）学位、多伦多大学机器人工程硕士（M.Sc.）学位，以及曼尼托巴大学机械与工业工程理学学士学位。何先生是 NECINA 资深理事校友，在归国前曾担任 NECINA 副会长，并主导成功创办了 2005 年首届 NECINA 商业计划书大赛。'
+      'Segway 是享誉全球的同名自平衡车发明者。该公司目前在上海证券交易所上市（证券代码：689009）。贺通先生统领 Segway 中长期业务增长机会开发，并与微出行和机器人产业生态中的核心领军企业建立战略合作伙伴关系。',
+      '贺通先生是一位连环创业家，并担任多家早期高科技公司的顾问。他曾担任基于大数据和垂直搜索技术的房产评估网站房价网（Fangjia.com）的董事会董事兼首席运营官。在此之前，他曾任 Myvu/MicroOptical 产品副总裁兼业务发展总监，并在多家早期科技企业历任核心职务。贺先生还曾在宝洁公司（Procter & Gamble）担任多职能部门经理。贺先生拥有哈佛商学院工商管理硕士（MBA）学位、多伦多大学机器人工程硕士（M.Sc.）学位，以及曼尼托巴大学机械与工业工程理学学士学位。贺先生是 NECINA 资深理事校友，在归国前曾担任 NECINA 副会长，并主导成功创办了 2005 年首届 NECINA 商业计划书大赛。'
     ]
   },
   {
@@ -630,7 +630,7 @@ export const LEADERSHIP_2024_2025_DATA: LeadershipTerm = {
       members: [
         {
           name: 'Caroline (Yujing) Lu',
-          name_zh: '卢妤婧',
+          name_zh: '吕妤婧',
           role: 'Director',
           role_zh: '负责人 / 总监',
           linkedin: 'https://www.linkedin.com/in/caroline-yujing-lu-cfa-1a08b018/'

@@ -9,6 +9,7 @@ import LeadershipPage from './pages/LeadershipPage';
 import ProgramsPage from './pages/ProgramsPage';
 import ProgramDetailPage from './pages/ProgramDetailPage';
 import EventsPage from './pages/EventsPage';
+import EventDetailPage from './pages/EventDetailPage';
 import MediaPage from './pages/MediaPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
 import AnniversaryPage from './pages/AnniversaryPage';
@@ -83,6 +84,8 @@ const App: React.FC = () => {
           <Route path="/programs" element={<ProgramsPage locale={locale} />} />
           <Route path="/programs/:slug" element={<ProgramDetailPage locale={locale} />} />
           <Route path="/events" element={<EventsPage locale={locale} />} />
+          <Route path="/events/:slug" element={<EventDetailPage locale={locale} />} />
+          <Route path="/events/:slug/poster" element={<EventDetailPage locale={locale} defaultView="poster" />} />
           <Route path="/media" element={<MediaPage locale={locale} />} />
           <Route path="/get-involved" element={<GetInvolvedPage locale={locale} />} />
           <Route path="/anniversary" element={<AnniversaryPage locale={locale} />} />

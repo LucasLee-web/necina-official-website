@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ShieldCheck, Users, Calendar, Award } from 'lucide-react';
 import type { Locale } from '../types';
 import BoardMembersSection from '../components/BoardMembersSection';
@@ -11,7 +12,37 @@ interface LeadershipPageProps {
 
 export const LeadershipPage: React.FC<LeadershipPageProps> = ({ locale }) => {
   const isZh = locale === 'zh';
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState<'all' | 'board' | 'team' | 'presidents'>('all');
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tabParam = searchParams.get('tab');
+    if (tabParam === 'board' || tabParam === 'team' || tabParam === 'presidents' || tabParam === 'all') {
+      setActiveTab(tabParam);
+      return;
+    }
+
+    if (location.hash === '#board' || location.hash === '#board-members') {
+      setActiveTab('board');
+      const elem = document.querySelector(location.hash);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (location.hash === '#team' || location.hash === '#leadership-teams') {
+      setActiveTab('team');
+      const elem = document.querySelector(location.hash);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (location.hash === '#presidents' || location.hash === '#presidents-chronology') {
+      setActiveTab('presidents');
+      const elem = document.querySelector(location.hash);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location.hash, location.search]);
 
   return (
     <div className="bg-slate-950 text-white min-h-screen pt-28 pb-24">
@@ -59,7 +90,7 @@ export const LeadershipPage: React.FC<LeadershipPageProps> = ({ locale }) => {
                 }`}
               >
                 <ShieldCheck className="w-4 h-4" />
-                <span>{isZh ? '董事会成员' : 'Board Members'}</span>
+                <span>{isZh ? 'NECINA董事会' : 'NECINA Board'}</span>
               </button>
               <button
                 type="button"
@@ -71,7 +102,7 @@ export const LeadershipPage: React.FC<LeadershipPageProps> = ({ locale }) => {
                 }`}
               >
                 <Users className="w-4 h-4" />
-                <span>{isZh ? '2024-2025 团队' : '2024-2025 Team'}</span>
+                <span>{isZh ? 'NECINA团队' : 'NECINA Team'}</span>
               </button>
               <button
                 type="button"
