@@ -9,6 +9,7 @@ import {
   MapPin,
   CheckCircle2,
   Users,
+  Award,
   Sparkles,
   Mail,
   BookOpen,
@@ -122,9 +123,9 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
       name: isZh ? event.title_zh : event.title,
       description: isZh ? event.description_zh : event.description,
       image: [imageUrl],
-      startDate: '2025-08-09T09:30:00-04:00',
-      endDate: '2026-05-16T17:00:00-04:00',
-      eventStatus: 'https://schema.org/EventCompleted',
+      startDate: event.id === 'yes-kickoff-launch' ? '2026-10-17T09:30:00-04:00' : '2025-08-09T09:30:00-04:00',
+      endDate: event.id === 'yes-kickoff-launch' ? '2026-12-12T11:30:00-05:00' : '2026-05-16T17:00:00-04:00',
+      eventStatus: event.status === 'upcoming' ? 'https://schema.org/EventScheduled' : 'https://schema.org/EventCompleted',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
         '@type': 'Place',
@@ -200,8 +201,8 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
   const prevEvent = currentIndex > 0 ? EVENTS_LIST[currentIndex - 1] : undefined;
   const nextEvent = currentIndex < EVENTS_LIST.length - 1 ? EVENTS_LIST[currentIndex + 1] : undefined;
 
-  const posterSrc = event.posterImage || event.image;
-  const photoSrc = event.photoImage || '/yes_group_photo.jpg';
+  const posterSrc = event.posterImage || event.image || '/yes 2026.jpg';
+  const photoSrc = event.photoImage || event.image || '/yes 2026.jpg';
 
   const handleCopyLink = () => {
     const url = `${window.location.origin}/events/${event.slug}?view=poster`;
@@ -228,7 +229,9 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
     audienceLabel: isZh ? '适合对象 / 申请群体' : 'Target Audience',
     statusLabel: isZh ? '活动状态' : 'Event Status',
     registerBtn: isZh ? '查看官方报名与申请表单' : 'View Registration / Application Form',
-    contactBtn: isZh ? '邮件咨询项目组 (yes@necina.org)' : 'Contact Team (yes@necina.org)',
+    contactBtn: isZh
+      ? `邮件咨询 (${event?.contactEmail || 'necinainfo@gmail.com'})`
+      : `Contact (${event?.contactEmail || 'necinainfo@gmail.com'})`,
     highlightsTitle: isZh ? '本期项目核心亮点' : 'Key Program Highlights',
     curriculumTitle: isZh ? '模块化实战训练营大纲' : 'Modular Bootcamp Curriculum & Agenda',
     facultyTitle: isZh ? '特邀导师与评审专家团队' : 'Featured Faculty, Mentors & Judges',
@@ -383,10 +386,23 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
                 <span className="px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 text-xs font-black uppercase tracking-wider">
                   ★ {t.posterBadge}
                 </span>
-                <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>{t.concluded}</span>
-                </span>
+                {event.status === 'upcoming' ? (
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 animate-pulse">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span>{isZh ? '火热招募中 (10/17开课)' : 'Registration Open (Starts Oct 17)'}</span>
+                  </span>
+                ) : (
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>{t.concluded}</span>
+                  </span>
+                )}
+
+                {event.cost && (
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold">
+                    ★ {isZh ? event.cost_zh || event.cost : event.cost}
+                  </span>
+                )}
               </div>
 
               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
@@ -537,6 +553,37 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
                       </span>
                     </div>
                   </div>
+
+                  {event.cost && (
+                    <div className="flex items-start gap-3 text-slate-300">
+                      <Award className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          {isZh ? '课程费用 / 学费' : 'Tuition / Cost'}
+                        </span>
+                        <span className="font-bold text-emerald-400 text-sm">
+                          {isZh ? event.cost_zh || event.cost : event.cost}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {event.contactEmail && (
+                    <div className="flex items-start gap-3 text-slate-300">
+                      <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                          {isZh ? '官方咨询邮箱' : 'Contact Email'}
+                        </span>
+                        <a
+                          href={`mailto:${event.contactEmail}`}
+                          className="font-semibold text-primary hover:underline"
+                        >
+                          {event.contactEmail}
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Primary CTA Buttons */}
@@ -640,10 +687,23 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
                       {isZh ? event.category_zh : event.category}
                     </span>
 
-                    <span className="px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>{t.concluded}</span>
-                    </span>
+                    {event.status === 'upcoming' ? (
+                      <span className="px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 animate-pulse">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <span>{isZh ? '火热招募中 (10/17开课)' : 'Registration Open (Starts Oct 17)'}</span>
+                      </span>
+                    ) : (
+                      <span className="px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>{t.concluded}</span>
+                      </span>
+                    )}
+
+                    {event.cost && (
+                      <span className="px-3.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-bold">
+                        ★ {isZh ? event.cost_zh || event.cost : event.cost}
+                      </span>
+                    )}
 
                     <button
                       onClick={() => switchView('poster')}
@@ -704,7 +764,7 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
                     )}
 
                     <a
-                      href="mailto:yes@necina.org"
+                      href={`mailto:${event.contactEmail || 'necinainfo@gmail.com'}`}
                       className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-sm border border-white/10 transition-colors"
                     >
                       <Mail className="w-4 h-4 text-primary" />
@@ -789,6 +849,37 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
                           </span>
                         </div>
                       </div>
+
+                      {event.cost && (
+                        <div className="flex items-start gap-3 text-slate-300">
+                          <Award className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                              {isZh ? '课程费用 / 学费' : 'Tuition / Cost'}
+                            </span>
+                            <span className="font-bold text-emerald-400 text-sm">
+                              {isZh ? event.cost_zh || event.cost : event.cost}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {event.contactEmail && (
+                        <div className="flex items-start gap-3 text-slate-300">
+                          <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <div>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                              {isZh ? '官方咨询邮箱' : 'Contact Email'}
+                            </span>
+                            <a
+                              href={`mailto:${event.contactEmail}`}
+                              className="font-semibold text-primary hover:underline"
+                            >
+                              {event.contactEmail}
+                            </a>
+                          </div>
+                        </div>
+                      )}
 
                       {/* Poster Link CTA */}
                       <div className="pt-2">

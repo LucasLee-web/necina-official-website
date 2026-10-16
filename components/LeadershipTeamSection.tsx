@@ -49,7 +49,7 @@ export const LeadershipTeamSection: React.FC<LeadershipTeamSectionProps> = ({ lo
                   <div className="flex items-center gap-4 sm:gap-5">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-primary/50 bg-slate-950 flex-shrink-0 shadow-xl shadow-primary/20">
                       <img
-                        src={data.president.photo || '/NECINA Leaders.jpg'}
+                        src={data.president.photo || '/images/board/caroline_lu.jpg'}
                         alt={data.president.name}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />

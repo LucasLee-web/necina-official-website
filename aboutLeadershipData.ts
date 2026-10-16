@@ -537,7 +537,7 @@ export const LEADERSHIP_2026_2027_DATA: LeadershipTerm = {
     role_zh: '现任会长 (2026 - 2027)',
     bioUrl: 'https://necina.org/content/necina-president',
     linkedin: 'https://www.linkedin.com/in/caroline-yujing-lu-cfa-1a08b018/',
-    photo: '/NECINA Leaders.jpg',
+    photo: '/images/board/caroline_lu.jpg',
     bio: 'Accomplished education entrepreneur, executive director and cross-generational leadership advocate. Leading NECINA’s digital modernizations, youth-to-founder pipelines, and global industry partnerships.',
     bio_zh: '深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。'
   },

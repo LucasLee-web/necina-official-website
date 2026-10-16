@@ -372,15 +372,80 @@ export const ProgramDetailPage: React.FC<ProgramDetailPageProps> = ({ locale }) 
       {/* B. If Modules / Curriculum Exists (e.g. YES 20.0 or ABC-NEW 5.0) */}
       {program.modules && program.modules.length > 0 && (
         <section className="py-16 sm:py-20 border-b border-white/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-            <div className="space-y-2 max-w-3xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                Curriculum & Milestones
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-white">
-                {isZh ? '课程大纲与赋能模块' : 'Curriculum & Program Schedule'}
-              </h2>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2">
+              <div className="space-y-2 max-w-3xl">
+                <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{isZh ? '历史经典模块' : 'Historical Curriculum Archive'}</span>
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-black text-white">
+                  {isZh ? '过往课程大纲与赋能模块' : 'Past Curriculum & Program Schedule'}
+                </h2>
+                <p className="text-sm text-slate-400">
+                  {isZh
+                    ? '以下为往届经典教学体系与实训大纲。如需参加今年最新批次，请前往最新活动专区报名。'
+                    : "Below is our historical curriculum milestone syllabus. To enroll in this year's newest cohort, explore the latest event."}
+                </p>
+              </div>
+
+              {/* Jump to this year's latest event */}
+              <Link
+                to={
+                  program.slug === 'yes-youth-entrepreneurship'
+                    ? '/events/yes-youth-entrepreneurship-launch'
+                    : '/events'
+                }
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-gradient-to-r from-primary to-primary-hover hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-xl shadow-primary/25 border border-primary/40 transition-all transform active:scale-95 flex-shrink-0 group"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>
+                  {isZh
+                    ? program.slug === 'yes-youth-entrepreneurship'
+                      ? '前往 2026 最新一期活动报名'
+                      : '查看今年最新活动与动态'
+                    : program.slug === 'yes-youth-entrepreneurship'
+                    ? 'View Latest 2026 Event & Register'
+                    : 'View Latest 2026 Events'}
+                </span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
+
+            {/* High-visibility Callout Banner linking to this year's latest event */}
+            {program.slug === 'yes-youth-entrepreneurship' && (
+              <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-500/15 via-primary/15 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
+                <div className="flex items-start sm:items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0 text-emerald-400">
+                    <Sparkles className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>{isZh ? '2026 最新一期正在火热招募中' : '2026 Cohort Registration Now Open'}</span>
+                    </div>
+                    <div className="text-base sm:text-lg font-black text-white mt-0.5">
+                      {isZh
+                        ? 'NECINA-YES 青年创业服务项目 2026 全新8周实战营（10/17开课，全程免费）'
+                        : 'NECINA-YES Youth Entrepreneurship 8-Week Program 2026 (Starts Oct 17, Free)'}
+                    </div>
+                    <div className="text-xs text-slate-300 mt-1">
+                      {isZh
+                        ? '时间：2026年10月17日–12月12日 每周六 9:30–11:30 AM | 地点：Lexington 或 Waltham'
+                        : 'Saturdays 9:30–11:30 AM (Oct 17 – Dec 12, 2026) | Lexington or Waltham, MA'}
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  to="/events/yes-youth-entrepreneurship-launch"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-500/30 transition-all whitespace-nowrap active:scale-95 flex-shrink-0"
+                >
+                  <span>{isZh ? '跳转到今年最新活动' : 'Jump to Latest Event'}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {program.modules.map((mod, idx) => (

@@ -20,8 +20,9 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
       ? paramCategory
       : 'all'
   );
+  const upcomingCount = EVENTS_LIST.filter((e) => e.status === 'upcoming').length;
   const [activeTab, setActiveTab] = useState<'past' | 'upcoming'>(
-    paramTab === 'upcoming' ? 'upcoming' : 'past'
+    paramTab === 'past' ? 'past' : (paramTab === 'upcoming' ? 'upcoming' : (upcomingCount > 0 ? 'upcoming' : 'past'))
   );
 
   useEffect(() => {
@@ -128,20 +129,29 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
           <div className="mt-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-white/10 text-xs font-bold w-fit">
               <button
+                onClick={() => handleTabSelect('upcoming')}
+                className={`px-4 py-2 rounded-lg transition-all flex items-center gap-2 ${
+                  activeTab === 'upcoming' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span>{t.upcomingTab}</span>
+                {upcomingCount > 0 && (
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                      activeTab === 'upcoming' ? 'bg-white text-primary' : 'bg-primary/20 text-primary'
+                    }`}
+                  >
+                    {upcomingCount}
+                  </span>
+                )}
+              </button>
+              <button
                 onClick={() => handleTabSelect('past')}
                 className={`px-4 py-2 rounded-lg transition-all ${
                   activeTab === 'past' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {t.pastTab}
-              </button>
-              <button
-                onClick={() => handleTabSelect('upcoming')}
-                className={`px-4 py-2 rounded-lg transition-all ${
-                  activeTab === 'upcoming' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {t.upcomingTab}
               </button>
             </div>
 
@@ -263,10 +273,17 @@ export const EventsPage: React.FC<EventsPageProps> = ({ locale }) => {
                   {/* Action Bar */}
                   <div className="p-8 pt-0">
                     <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
-                      <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        <span>{t.concluded}</span>
-                      </span>
+                      {ev.status === 'upcoming' ? (
+                        <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5 animate-pulse">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                          <span>{isZh ? '火热报名中' : 'Registration Open'}</span>
+                        </span>
+                      ) : (
+                        <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                          <span>{t.concluded}</span>
+                        </span>
+                      )}
 
                       <div className="flex flex-wrap items-center gap-2">
                         {ev.posterImage && (

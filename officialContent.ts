@@ -81,6 +81,9 @@ export interface OfficialEvent {
   curriculum?: { title: string; title_zh: string; desc: string; desc_zh: string }[];
   paragraphs?: string[];
   paragraphs_zh?: string[];
+  cost?: string;
+  cost_zh?: string;
+  contactEmail?: string;
 }
 
 export interface MediaItem {
@@ -495,82 +498,111 @@ export const EVENTS_LIST: OfficialEvent[] = [
     title_zh: 'NECINA-YES青年创业服务项目正式启动！',
     subtitle: 'AI-Driven Youth Entrepreneurship Leadership Program — Accelerating Your Vision from Ideation to Real-World Impact',
     subtitle_zh: 'AI驱动的青年创业领袖计划，助力你的创意从想法到影响力！',
-    date: 'August 9, 2025 – May 16, 2026 (Annual Cycle)',
-    date_zh: '2025年8月9日 – 2026年5月16日（年度完整周期）',
-    publishDate: 'Official WeChat Announcement',
-    publishDate_zh: '官方微信推文发布',
-    venue: 'Lexington Community Center (39 Marrett Rd, Lexington, MA 02421) & MIT Stata Center',
-    venue_zh: '莱克星顿社区中心 (39 Marrett Rd, Lexington, MA 02421) 及麻省理工学院 (MIT) Stata 创新中心',
+    date: 'October 17 – December 12, 2026 (Saturdays 9:30 AM – 11:30 AM)',
+    date_zh: '2026年10月17日至12月12日，每周六上午9:30–11:30',
+    publishDate: 'Official Announcement (Registration Open)',
+    publishDate_zh: '官方正式发布（报名火热开启）',
+    venue: 'Lexington or Waltham, MA',
+    venue_zh: 'Lexington 或 Waltham, MA',
+    cost: 'Free ($0 Tuition)',
+    cost_zh: '免费',
+    contactEmail: 'necinainfo@gmail.com',
     category: 'Youth',
     category_zh: '青年创业',
-    status: 'past',
-    description: 'NECINA officially launches the Youth Entrepreneurship Service (YES) program. An 8-week intensive entrepreneurship and leadership bootcamp tailored for high school students (grades 9-12), integrating AI innovation tools, project-based venture creation, executive mentorship, and a capstone pitch competition with cash prizes and corporate internship pathways.',
-    description_zh: '纽英伦中华资讯网络协会（NECINA）自豪宣布 YES 青年创业服务项目正式开启报名！专为 9–12 年级高中生量身定制为期 8 周的高强度创业与领导力训练营，深度融合 AI 前沿工具赋能、PBL 商业项目实战、顶尖高管导师闭门一对一指导与全场总决赛路演，并设立丰厚奖金与企业实习绿色通道。',
-    speakers: ['Ben Tao (Head of Corporate Strategy, Rockwell Automation)', 'NECINA YES Mentorship Faculty', 'Alumni Startup Founders & Venture Judges'],
-    speakers_zh: ['陶东斌 (罗克韦尔自动化企业战略高级总监)', 'NECINA YES 导师委员会专家团队', 'YES 往届杰出青年创始人与创投评委'],
-    registrationUrl: 'https://tinyurl.com/YES-19-Registration',
-    registrationText: 'View Registration & Application Form',
-    registrationText_zh: '查看报名与选拔表单',
-    image: '/yes_youth_poster.jpg',
-    posterImage: '/yes_youth_poster.jpg',
-    photoImage: '/yes_group_photo.jpg',
+    status: 'upcoming',
+    description: 'NECINA officially launches the 2026 Youth Entrepreneurship Service (YES) program! 8 sessions in total starting October 17, 2026, held Saturday mornings (9:30–11:30 AM) in Lexington or Waltham, MA. Entirely free tuition for high school students (grades 9–12), culminating in the grand Pitch Day competition.',
+    description_zh: '纽英伦中华资讯网络协会（NECINA）YES 青年创业服务项目重磅启动！全期共 8 次实战课，于 2026 年 10 月 17 日至 12 月 12 日每周六上午 9:30–11:30 举办（地点：Lexington 或 Waltham），全程免费！专为 9–12 年级高中生量身打造，涵盖 AI 原型设计、商业模式、品牌营销、资本对接直至最终路演日。',
+    speakers: [
+      'Tony Ho (VP, Segway-Ninebot Group)',
+      'Ben Tao (VP Corporate Development, PTC)',
+      'John Wang (Serial Entrepreneur)',
+      'Connie Dai (Founding Partner, Lion\'s Law)',
+      'Steve Yang (AI Expert, Google)',
+      'Qingcong Lin (President, Medicilon)'
+    ],
+    speakers_zh: [
+      'Tony Ho (九号公司商务拓展副总裁)',
+      'Ben Tao (PTC 企业战略与并购副总裁)',
+      'John Wang (连续创业家与投资人)',
+      'Connie Dai (Lion\'s Law 创始管理合伙人)',
+      'Steve Yang (Google AI 专家)',
+      'Qingcong Lin (美迪西总裁)'
+    ],
+    registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdLR0jYuLq-Vg1Ox73YGjb8XCcSxp5tOz8zqF8VRYsRHD3B6g/viewform',
+    registrationText: 'Sign Up at Official Google Form',
+    registrationText_zh: '立即前往 Google 官方报名表单',
+    image: '/yes 2026.jpg',
+    posterImage: '/yes 2026.jpg',
+    photoImage: '/yes 2026.jpg',
     organizer: 'New England Chinese Information and Networking Association (NECINA)',
     organizer_zh: '纽英伦中华资讯网络协会 (NECINA)',
     coOrganizers: ['NECINA Youth Program Team', 'YES Mentorship Committee', 'Boston Tsinghua Alumni Association', 'Boston Chinese Network'],
     coOrganizers_zh: ['NECINA 青年项目团队', 'YES 导师委员会', '波士顿清华校友会', '波士顿中文网'],
-    targetAudience: 'Passionate high school students (grades 9–12) and aspiring youth innovators',
-    targetAudience_zh: '充满激情、对科技创新、商业设计与团队领导力抱有热忱的 9–12 年级高中生',
+    targetAudience: 'High school students (grades 9–12) passionate about innovation, leadership, and entrepreneurship',
+    targetAudience_zh: '对科技创新、商业设计与团队领导力抱有热忱的 9–12 年级高中生',
     sourceUrl: 'https://mp.weixin.qq.com/s/rmeEuATCJHTAKI1H1hEn6A',
-    sourceName: 'NECINA Official WeChat Announcement',
-    sourceName_zh: 'NECINA 微信公众号官方发布推文',
+    sourceName: 'NECINA Official Announcement',
+    sourceName_zh: 'NECINA 官方发布渠道',
     highlights: [
-      'AI-Driven Entrepreneurship: Learn to incorporate artificial intelligence tools into real-world business ideation, market validation, and prototyping.',
-      'Project-Based Learning (PBL): Work in interscholastic teams to build verified business models and functioning prototypes from scratch.',
-      'Executive Mentorship: Direct 1-on-1 coaching with tech executives, serial entrepreneurs, and angel investors from Greater Boston and Silicon Valley.',
-      'Capstone Pitch Competition: Present before distinguished venture capital judges at MIT for cash awards and corporate internship opportunities.'
+      '8 Comprehensive Modular Sessions: From entrepreneurial ideation to legal protection and grand final Pitch Day.',
+      'AI-Powered Entrepreneurship: Master cutting-edge generative AI tools to rapidly prototype and test real-world solutions.',
+      'Zero Tuition Barrier: Completely free program sponsored by NECINA for aspiring youth leaders (grades 9–12).',
+      'Executive Mentorship: Direct weekly guidance from corporate executives, serial entrepreneurs, and venture capital judges.'
     ],
     highlights_zh: [
-      'AI 驱动的前沿创业：系统学习利用人工智能工具加速市场洞察、产品原型开发与商业模式验证。',
-      'PBL 项目式实战：学员组建多元跨校战队，从零打磨出具备商业可行性与社会影响力的真实创业方案。',
-      '资深高管一对一导师：由来自罗克韦尔自动化等知名科技企业的创业导师进行闭门答辩复盘与深度辅导。',
-      '年度全场总决赛路演：在麻省理工学院 (MIT) 舞台面向风投评委展示成果，角逐现金大奖与企业实习通道。'
+      '共 8 次系统化实战课程：从创业思维启发、AI 赋能原型开发到权益保护与终极路演日。',
+      'AI 前沿实战落地：系统运用大模型与 AI 工具加速痛点洞察、产品 MVP 搭建与商业模式验证。',
+      '课程费用全程免费：由 NECINA 501(c)(3) 非营利基金全力支持，为优秀青年学子提供零门槛成长通道。',
+      '高管与风投面对面辅导：来自罗克韦尔自动化等知名科技企业导师深度答疑复盘与模拟路演。'
     ],
     curriculum: [
       {
-        title: 'Session 1: Entrepreneurship 101, Ideation & AI Discovery',
-        title_zh: '第一模块：创业概论、痛点挖掘与 AI 辅助市场洞察',
-        desc: 'Framing problems, value propositions, and using modern AI tooling to conduct automated market and competitor research.',
-        desc_zh: '明确真实痛点与价值主张，掌握利用大模型与 AI 工具开展自动化市场调研与竞品分析的核心方法。'
+        title: 'Week 1: Think Like an Entrepreneur — Discover Problems, Create Solutions',
+        title_zh: '第一周：像创业者一样思考 — 发现痛点，创造解决方案',
+        desc: 'Discover high-value problems, empathy mapping, ideation frameworks, and crafting customer-centric solutions.',
+        desc_zh: '培养创业者思维体系，深入洞察用户真实痛点，运用系统性创意框架打造颠覆性解决方案。'
       },
       {
-        title: 'Session 2: Product Prototyping & Customer Discovery Validation',
-        title_zh: '第二模块：产品原型设计与目标客群验证',
-        desc: 'Building rapid MVPs, conducting structured user interviews, and iterative wireframing.',
-        desc_zh: '快速构建最小可行性产品（MVP），开展结构化用户访谈并进行敏捷迭代设计。'
+        title: 'Week 2: Build It — Turn Ideas into Reality with AI',
+        title_zh: '第二周：打造原型 — 运用 AI 将创意转化为现实',
+        desc: 'Harness generative AI tools to rapidly prototype, build functional MVPs, and validate technical feasibility.',
+        desc_zh: '前沿 AI 工具与无代码实战，加速产品原型开发与技术验证，以闪电速度构建最小可行性产品（MVP）。'
       },
       {
-        title: 'Session 3: Corporate Structure, IP Protection & Operations',
-        title_zh: '第三模块：企业架构设计、知识产权保护与运营规划',
-        desc: 'Foundational legal structures, patent and trademark fundamentals, and equity distribution models for early startups.',
-        desc_zh: '初创公司法律实体类型、专利与商标知识产权保护常识及核心合伙人股权分配机制。'
+        title: 'Week 3: Make the Money Work — Build a Profitable Business Model',
+        title_zh: '第三周：精明财务 — 构建盈利商业模式与成本架构',
+        desc: 'Designing sustainable revenue streams, cost structures, pricing models, unit economics, and financial projections.',
+        desc_zh: '设计可持续盈利模式，拆解收入来源与成本架构，掌握单位经济效益、科学定价与财务预测。'
       },
       {
-        title: 'Session 4: Financial Modeling, Unit Economics & Pricing',
-        title_zh: '第四模块：初创财务模型、单位经济效益与定价策略',
-        desc: 'Pricing strategies, startup runway budgeting, gross margins, and seed-round financial projections.',
-        desc_zh: '定价策略、初创成本预算、毛利率测算与种子轮融资财务模型实战演练。'
+        title: 'Week 4: Brand It — Tell Your Story, Win Your Customers',
+        title_zh: '第四周：品牌叙事 — 讲好品牌故事，赢得第一批用户',
+        desc: 'Brand storytelling, core positioning, marketing funnels, viral distribution, and early customer acquisition tactics.',
+        desc_zh: '打造动人品牌叙事，确立差异化品牌定位，打通获客转化漏斗，锁定并获取首批种子用户。'
       },
       {
-        title: 'Session 5: Executive Mentor Teardowns & Dry-Run Reviews',
-        title_zh: '第五模块：导师闭门一对一辅导与模拟路演复盘',
-        desc: 'Intensive 1-on-1 feedback sessions with serial entrepreneurs and venture capital judges.',
-        desc_zh: '与连续创业者及风险投资评审进行闭门一对一打磨与高强度模拟答辩。'
+        title: 'Week 5: Fund It — Pitch Your Vision, Raise Capital',
+        title_zh: '第五周：资本对接 — 陈述未来愿景，学习融资与路演技巧',
+        desc: 'Venture capital and angel financing mechanics, crafting winning investor decks, and compelling storytelling for funding.',
+        desc_zh: '解析早期风险投资与天使融资运作逻辑，精细打磨路演幻灯片，掌握打动投资机构的演讲技巧。'
       },
       {
-        title: 'Session 6: Capstone Business Plan Pitch Gala',
-        title_zh: '第六模块：YES 商业计划书全场总决赛路演',
-        desc: 'Live pitch showcase in front of industry judges, family, and peers with cash prize distribution.',
-        desc_zh: '面向资深行业评委、投资人与社区公众的线下盛大路演，评选优胜奖项并颁发丰厚奖金。'
+        title: 'Week 6: Lead It — Build Your Team, Execute Your Vision',
+        title_zh: '第六周：卓越领导力 — 打造高绩效团队，落地执行构想',
+        desc: 'Co-founder dynamics, team building, equity allocation, milestone execution, and cultivating executive leadership.',
+        desc_zh: '创业合伙人选择与股权架构设计，敏捷里程碑项目推进，跨团队协作与卓越领导力塑造。'
+      },
+      {
+        title: 'Week 7: Protect It — Safeguard Your Ideas and Business',
+        title_zh: '第七周：权益保护 — 守护创新发明、知识产权与商业机密',
+        desc: 'Intellectual property fundamentals (patents, trademarks, copyrights), NDAs, legal incorporation, and safeguarding digital assets.',
+        desc_zh: '全面掌握专利、商标、版权等知识产权保护常识，签订保密协议与法律合规，为创业成果筑牢防火墙。'
+      },
+      {
+        title: 'Week 8: Pitch Day — Pitch Your Startup, Launch Your Future',
+        title_zh: '第八周：终极路演日 — 展示创业项目，启航未来人生',
+        desc: 'Live capstone pitch competition before distinguished venture capital judges, industry mentors, and community leaders.',
+        desc_zh: '年度终极路演日！面向资深风险投资人、科技高管导师与公众展示完整商业计划，评选优胜大奖。'
       }
     ],
     paragraphs: [
@@ -636,7 +668,7 @@ export const EVENTS_LIST: OfficialEvent[] = [
     description_zh: '入围决赛的高中青年创业战队登上 MIT 舞台，向知名风险投资人与科技高管评审团展示经过市场验证的商业计划书与产品原型。',
     speakers: ['Ben Tao (Rockwell Automation)', 'YES Alumni Mentors', 'Boston Angel Investors'],
     speakers_zh: ['陶东斌 (罗克韦尔自动化战略高管)', 'YES 往届杰出校友导师', '波士顿天使投资人评审'],
-    image: '/yes_group_photo.jpg'
+    image: '/yes 2026.jpg'
   },
   {
     id: 'eclub-female-leadership',
@@ -722,7 +754,7 @@ export const LEADERSHIP_ROSTER: Leader[] = [
     bio: 'Senior community leader and executive active in driving organizational modernization, cross-generational outreach, and strategic educational partnerships.',
     bio_zh: '深耕科技社区与教育赋能的资深管理者，致力于推动 NECINA 组织现代化、青年跨代传承与全球教育资源合作。',
     category: 'executive',
-    image: '/NECINA Leaders.jpg'
+    image: '/images/board/caroline_lu.jpg'
   },
   {
     name: 'Bing He',
@@ -812,12 +844,12 @@ export const MEDIA_GALLERY: MediaItem[] = [
     id: 'm4',
     type: 'photo',
     title: 'YES 20th Cohort Youth Teams & Mentors',
-    title_zh: 'YES 第 20 届青年创业战队与导师团',
-    date: '2025',
-    url: '/yes_group_photo.jpg',
-    thumbnail: '/yes_group_photo.jpg',
-    description: 'High school innovators gathered at the business plan competition pitch stage.',
-    description_zh: '汇聚在商业计划书大赛路演现场的新英格兰青年创新团队。',
+    title_zh: 'YES 2026 青年创业领袖项目',
+    date: '2026',
+    url: '/yes 2026.jpg',
+    thumbnail: '/yes 2026.jpg',
+    description: 'High school innovators and ambitious youth founders in the 8-week AI-powered venture building program.',
+    description_zh: '汇聚在 8 周 AI 驱动青年创业领袖训练营的新英格兰优秀青年创新者。',
     category: 'Youth'
   },
   {
